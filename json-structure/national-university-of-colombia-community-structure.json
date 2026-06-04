@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/national-university-of-colombia/main/json-structure/national-university-of-colombia-community-structure.json",
+  "name": "DSpaceCommunity",
+  "description": "JSON Structure for a DSpace community in the UNAL institutional repository (DSpace 7.6.5).",
+  "type": "object",
+  "properties": {
+    "uuid": { "type": "string" },
+    "name": { "type": "string" },
+    "handle": { "type": "string" },
+    "archivedItemsCount": { "type": "int32" },
+    "type": { "type": "string" },
+    "metadata": {
+      "type": "map",
+      "values": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "value": { "type": "string" },
+            "language": { "type": ["string", "null"] },
+            "authority": { "type": ["string", "null"] },
+            "confidence": { "type": "int32" },
+            "place": { "type": "int32" }
+          }
+        }
+      }
+    }
+  },
+  "required": ["uuid", "name", "handle", "type"]
+}

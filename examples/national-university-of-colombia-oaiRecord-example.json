@@ -1,0 +1,22 @@
+{
+  "description": "Representative single OAI-PMH record (oai_dc) from ListRecords, captured live and rendered as JSON for convenience. The wire format is XML under http://www.openarchives.org/OAI/2.0/.",
+  "request": {
+    "verb": "GetRecord",
+    "metadataPrefix": "oai_dc",
+    "identifier": "oai:repositorio.unal.edu.co:unal/76203",
+    "url": "https://bffrepositorio.unal.edu.co/server/oai/request?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:repositorio.unal.edu.co:unal/76203"
+  },
+  "record": {
+    "header": {
+      "identifier": "oai:repositorio.unal.edu.co:unal/76203",
+      "datestamp": "2026-05-21T19:44:25Z",
+      "setSpec": ["com_unal_18", "com_unal_8", "com_unal_1", "col_unal_82470"]
+    },
+    "metadata": {
+      "dc:title": "Significados de la soltería femenina en el contexto bogotano (1991-2016)",
+      "dc:creator": "Ramírez Martínez, Yadira",
+      "dc:contributor": "Ramirez Rodríguez, María Himelda",
+      "dc:description": "Esta investigación analiza los significados de la soltería femenina en la ciudad de Bogotá, en el tiempo comprendido entre 1991 y 2016."
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/national-university-of-colombia/main/json-schema/national-university-of-colombia-community-schema.json",
+  "title": "DSpace Community",
+  "description": "A community in the Repositorio Institucional Universidad Nacional de Colombia (DSpace 7.6.5). Communities are organizational groupings such as faculties, campuses, and digital libraries.",
+  "type": "object",
+  "required": ["uuid", "name", "handle", "type"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "uuid": { "type": "string", "format": "uuid" },
+    "name": { "type": "string" },
+    "handle": {
+      "type": "string",
+      "description": "Persistent handle, e.g. unal/161",
+      "pattern": "^unal/[0-9]+$"
+    },
+    "metadata": { "$ref": "#/$defs/metadataMap" },
+    "archivedItemsCount": { "type": "integer", "minimum": 0 },
+    "type": { "type": "string", "const": "community" },
+    "_links": { "$ref": "#/$defs/links" }
+  },
+  "$defs": {
+    "metadataValue": {
+      "type": "object",
+      "required": ["value"],
+      "properties": {
+        "value": { "type": "string" },
+        "language": { "type": ["string", "null"] },
+        "authority": { "type": ["string", "null"] },
+        "confidence": { "type": "integer" },
+        "place": { "type": "integer" }
+      }
+    },
+    "metadataMap": {
+      "type": "object",
+      "description": "Qualified Dublin Core metadata keyed by field, e.g. dc.title, dc.identifier.uri.",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/metadataValue" }
+      }
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": { "href": { "type": "string", "format": "uri" } }
+      }
+    }
+  }
+}

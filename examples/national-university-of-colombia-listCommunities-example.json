@@ -1,0 +1,45 @@
+{
+  "_embedded": {
+    "communities": [
+      {
+        "id": "e2399be6-7fe2-4194-81f6-700acde0ff80",
+        "uuid": "e2399be6-7fe2-4194-81f6-700acde0ff80",
+        "name": "Biblioteca Digital Feminista Ofelia Uribe de Acosta BDF",
+        "handle": "unal/161",
+        "metadata": {
+          "dc.identifier.uri": [
+            {
+              "value": "https://repositorio.unal.edu.co/handle/unal/161",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ],
+          "dc.title": [
+            {
+              "value": "Biblioteca Digital Feminista Ofelia Uribe de Acosta BDF",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ]
+        },
+        "archivedItemsCount": 2210,
+        "type": "community",
+        "_links": {
+          "self": {
+            "href": "https://bffrepositorio.unal.edu.co/server/api/core/communities/e2399be6-7fe2-4194-81f6-700acde0ff80"
+          }
+        }
+      }
+    ]
+  },
+  "page": {
+    "size": 1,
+    "totalElements": 76,
+    "totalPages": 76,
+    "number": 0
+  }
+}

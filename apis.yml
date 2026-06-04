@@ -37,9 +37,32 @@ apis:
       and should be re-verified against the current DSpace version before use.
     humanURL: https://repositorio.unal.edu.co/
     tags: [ Institutional Repository, OAI-PMH, DSpace, Research, Open Access ]
+    baseURL: https://bffrepositorio.unal.edu.co/server
     properties:
       - type: Documentation
         url: https://www.re3data.org/repository/r3d100013982
+      - type: OpenAPI
+        url: openapi/national-university-of-colombia-repository-oai.yaml
+      - type: JSONSchema
+        url: json-schema/national-university-of-colombia-community-schema.json
+      - type: JSONSchema
+        url: json-schema/national-university-of-colombia-collection-schema.json
+      - type: x-json-structure
+        url: json-structure/national-university-of-colombia-community-structure.json
+      - type: x-json-structure
+        url: json-structure/national-university-of-colombia-collection-structure.json
+      - type: x-example
+        url: examples/national-university-of-colombia-listCommunities-example.json
+      - type: x-example
+        url: examples/national-university-of-colombia-listCollections-example.json
+      - type: x-example
+        url: examples/national-university-of-colombia-oaiRecord-example.json
+      - type: x-spectral-rules
+        url: rules/national-university-of-colombia-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/national-university-of-colombia-vocabulary.yml
+      - type: x-json-ld-context
+        url: json-ld/national-university-of-colombia-context.jsonld
   - aid: national-university-of-colombia:open-data
     name: UNAL Open Data Portal
     description: >-

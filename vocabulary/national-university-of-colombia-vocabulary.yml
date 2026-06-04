@@ -1,0 +1,59 @@
+vocabulary:
+  name: National University of Colombia Institutional Repository Vocabulary
+  description: >-
+    Controlled vocabulary for the publicly accessible DSpace 7.6.5 REST API and
+    OAI-PMH 2.0 interface of the Repositorio Institucional Universidad Nacional
+    de Colombia. Terms reflect concepts confirmed against the live API.
+  version: "7.6.5"
+  terms:
+    - term: Community
+      definition: >-
+        A DSpace organizational grouping (e.g. a faculty, campus, or digital
+        library) that contains subcommunities and collections.
+      tags: [dspace, structure, rest]
+    - term: Collection
+      definition: >-
+        A DSpace grouping of items within a community, typically a degree program
+        or document type; carries a license and item template.
+      tags: [dspace, structure, rest]
+    - term: Item
+      definition: >-
+        An archived repository record (thesis, dissertation, article, book, or
+        dataset). Item listing requires authentication; items remain discoverable
+        through Discover search and OAI-PMH harvesting.
+      tags: [dspace, content]
+    - term: Handle
+      definition: >-
+        Persistent identifier assigned to communities, collections, and items,
+        formatted as unal/{number}, resolvable at repositorio.unal.edu.co.
+      tags: [identifier, persistence]
+    - term: Metadata Map
+      definition: >-
+        Object keying qualified Dublin Core fields (e.g. dc.title,
+        dc.identifier.uri) to arrays of metadata value entries.
+      tags: [dublin-core, metadata]
+    - term: Discover
+      definition: >-
+        The DSpace faceted search subsystem exposed at /api/discover, including
+        search/objects for full-text and filtered queries.
+      tags: [search, rest]
+    - term: OAI-PMH
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting, version 2.0,
+        exposed at /server/oai/request for bulk metadata harvesting.
+      tags: [harvesting, interoperability]
+    - term: Metadata Prefix
+      definition: >-
+        OAI-PMH format selector. Confirmed prefixes include oai_dc, qdc, mods,
+        mets, didl, dim, etdms, marc, ore, rdf, uketd_dc, and xoai.
+      tags: [oai-pmh, format]
+    - term: setSpec
+      definition: >-
+        OAI-PMH set identifier used to scope harvesting; community sets use the
+        com_unal_{n} pattern and collection sets use col_unal_{n}.
+      tags: [oai-pmh, scoping]
+    - term: HAL Links
+      definition: >-
+        Hypermedia _links object on every REST resource pointing to related
+        resources and the resource self URL (application/hal+json).
+      tags: [hateoas, rest]

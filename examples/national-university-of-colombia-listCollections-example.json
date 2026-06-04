@@ -1,0 +1,54 @@
+{
+  "_embedded": {
+    "collections": [
+      {
+        "id": "9def60f4-ef14-4dda-85ef-7fe80fb20945",
+        "uuid": "9def60f4-ef14-4dda-85ef-7fe80fb20945",
+        "name": "Maestría en Interpretación y Pedagogía Instrumental",
+        "handle": "unal/82395",
+        "metadata": {
+          "dc.description.abstract": [
+            {
+              "value": "Tesis y Disertaciones / Sede Bogotá / Facultad de Artes",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ],
+          "dc.identifier.uri": [
+            {
+              "value": "https://repositorio.unal.edu.co/handle/unal/82395",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ],
+          "dc.title": [
+            {
+              "value": "Maestría en Interpretación y Pedagogía Instrumental",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ]
+        },
+        "archivedItemsCount": 68,
+        "type": "collection",
+        "_links": {
+          "self": {
+            "href": "https://bffrepositorio.unal.edu.co/server/api/core/collections/9def60f4-ef14-4dda-85ef-7fe80fb20945"
+          }
+        }
+      }
+    ]
+  },
+  "page": {
+    "size": 1,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 0
+  }
+}

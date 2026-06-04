@@ -1,0 +1,45 @@
+extends: []
+formats:
+  - oas3
+documentationUrl: https://repositorio.unal.edu.co/
+rules:
+  unal-info-contact:
+    description: Repository API must expose a contact for the digital repository team.
+    message: info.contact is required (repositorio_nal@unal.edu.co)
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+  unal-server-bff-host:
+    description: Servers should point at the confirmed DSpace backend host.
+    message: Server URL should be the bffrepositorio.unal.edu.co/server backend.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "bffrepositorio\\.unal\\.edu\\.co/server"
+  unal-operation-id:
+    description: Every operation should declare an operationId.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: operationId
+      function: truthy
+  unal-hal-json-media:
+    description: DSpace REST responses are served as application/hal+json.
+    message: REST 200 responses should offer application/hal+json.
+    severity: hint
+    given: $.paths[?(@property != '/oai/request')][get].responses.200.content
+    then:
+      field: application/hal+json
+      function: truthy
+  unal-oai-verb-enum:
+    description: The OAI-PMH endpoint must constrain the verb parameter to the OAI-PMH 2.0 verbs.
+    message: The OAI-PMH verb parameter must be an enum of the six OAI-PMH verbs.
+    severity: error
+    given: $.paths['/oai/request'].get.parameters[?(@.name=='verb')].schema
+    then:
+      field: enum
+      function: truthy

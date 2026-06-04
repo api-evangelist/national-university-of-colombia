@@ -1,0 +1,55 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "unal": "https://repositorio.unal.edu.co/vocab#",
+    "@vocab": "https://repositorio.unal.edu.co/vocab#",
+
+    "institution": {
+      "@id": "schema:CollegeOrUniversity",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "url": "schema:url",
+    "identifier": "schema:identifier",
+    "email": "schema:email",
+    "description": "schema:description",
+
+    "Community": "unal:Community",
+    "Collection": "unal:Collection",
+    "Item": "schema:CreativeWork",
+
+    "uuid": "schema:identifier",
+    "handle": {
+      "@id": "dct:identifier",
+      "@type": "schema:Text"
+    },
+    "title": "dc:title",
+    "creator": "dc:creator",
+    "contributor": "dc:contributor",
+    "abstract": "dct:abstract",
+    "archivedItemsCount": "unal:archivedItemsCount",
+    "type": "schema:additionalType",
+
+    "metadata": "unal:metadata",
+    "setSpec": "unal:setSpec",
+    "metadataPrefix": "unal:metadataPrefix",
+
+    "self": {
+      "@id": "schema:url",
+      "@type": "@id"
+    }
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "Universidad Nacional de Colombia",
+  "url": "https://unal.edu.co/",
+  "description": "Colombia's largest public research university; its DSpace 7.6.5 institutional repository exposes a HAL+JSON REST API and an OAI-PMH 2.0 harvesting interface.",
+  "subOrganization": {
+    "@type": "schema:Organization",
+    "name": "Repositorio Institucional Universidad Nacional de Colombia",
+    "url": "https://repositorio.unal.edu.co/",
+    "email": "repositorio_nal@unal.edu.co"
+  }
+}
