@@ -1,0 +1,41 @@
+---
+name: National University of Colombia
+description: National University of Colombia public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/national-university-of-colombia/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      The National University of Colombia (UNAL) has no formal, documented public
+      developer portal or REST API program. Verified live: the institutional
+      repository web app (DSpace), the open-data portal, the official UNAL GitHub
+      organization, and the library system site all return HTTP 200. The
+      repository is registered with re3data and OpenDOAR as OAI-PMH enabled, but
+      the OAI-PMH and DSpace REST endpoint paths probed returned 404, so they
+      could not be confirmed live and must be re-verified before integration. No
+      endpoints, keys, or signup flows were fabricated; only confirmed public
+      surfaces are cataloged.
+    endpoints:
+      - url: https://unal.edu.co/
+        status: 0
+        note: Official website; blocks automated clients (403/000), but is the canonical domain.
+      - url: https://repositorio.unal.edu.co/
+        status: 200
+        note: DSpace institutional repository web application; resolves publicly.
+      - url: https://repositorio.unal.edu.co/oai/request?verb=Identify
+        status: 404
+        note: OAI-PMH documented by re3data/OpenDOAR but this path did not resolve; needs re-verification.
+      - url: https://datosabiertos.unal.edu.co/
+        status: 200
+        note: Open data portal; no documented API or developer endpoints advertised.
+      - url: https://bibliotecas.unal.edu.co/
+        status: 200
+        note: National Library System site; no public API documented.
+      - url: https://github.com/unal
+        status: 200
+        note: Official UNAL GitHub org; few public repos, no API source code.
+      - url: https://www.re3data.org/repository/r3d100013982
+        status: 200
+        note: re3data registration confirming repository and OAI-PMH metadata interface.

@@ -1,0 +1,72 @@
+---
+aid: national-university-of-colombia
+name: National University of Colombia
+description: >-
+  The National University of Colombia (Universidad Nacional de Colombia, UNAL) is
+  the country's largest public research university, ranked #219 in the QS World
+  University Rankings 2025. UNAL maintains an open-data portal and a DSpace-based
+  institutional repository, but does not publish a formal, documented public
+  developer portal or REST API program. The most accessible programmatic surface
+  is the OAI-PMH interface exposed by its institutional repository, alongside an
+  open-data portal and an official GitHub organization with limited public code.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/national-university-of-colombia/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Colombia
+  - Open Data
+  - Institutional Repository
+  - OAI-PMH
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: national-university-of-colombia:repository-oai
+    name: Institutional Repository (DSpace / OAI-PMH)
+    description: >-
+      The Repositorio Institucional Universidad Nacional de Colombia is a DSpace
+      repository of theses, dissertations, articles, books, and research data.
+      It is registered with re3data and OpenDOAR as exposing an OAI-PMH metadata
+      interface for harvesting. The repository web application resolves publicly;
+      the OAI-PMH request endpoint path could not be confirmed live during review
+      and should be re-verified against the current DSpace version before use.
+    humanURL: https://repositorio.unal.edu.co/
+    tags: [ Institutional Repository, OAI-PMH, DSpace, Research, Open Access ]
+    properties:
+      - type: Documentation
+        url: https://www.re3data.org/repository/r3d100013982
+  - aid: national-university-of-colombia:open-data
+    name: UNAL Open Data Portal
+    description: >-
+      Datos Abiertos Universidad Nacional de Colombia is the institution's open
+      data portal publishing primary, interoperable datasets for public reuse.
+      The portal resolves publicly but does not advertise a documented API or
+      developer endpoints; data access appears to be via the portal interface.
+    humanURL: https://datosabiertos.unal.edu.co/
+    tags: [ Open Data, Datasets, Statistics ]
+    properties:
+      - type: Documentation
+        url: https://datosabiertos.unal.edu.co/
+common:
+  - type: Website
+    url: https://unal.edu.co/
+  - type: GitHub
+    url: https://github.com/unal
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/universidad-nacional-de-colombia/
+  - type: Plans
+    url: plans/national-university-of-colombia-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/national-university-of-colombia-rate-limits.yml
+  - type: FinOps
+    url: finops/national-university-of-colombia-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
