@@ -76,6 +76,8 @@ apis:
       - type: Documentation
         url: https://datosabiertos.unal.edu.co/
 common:
+  - type: DomainSecurity
+    url: security/national-university-of-colombia-domain-security.yml
   - type: Website
     url: https://unal.edu.co/
   - type: GitHub
