@@ -1,0 +1,113 @@
+openapi: 3.0.3
+info:
+  title: National University of Colombia - Institutional Repository OAI-PMH REST - Discover API
+  description: 'Machine-readable description of the publicly accessible, read-only surface of the Repositorio Institucional Universidad Nacional de Colombia, powered by DSpace 7.6.5. Two interfaces are documented: the DSpace REST API (HAL+JSON) and the OAI-PMH 2.0 metadata harvesting interface. Only endpoints confirmed to resolve anonymously during discovery are included. Endpoints that require authentication (e.g. /server/api/core/items) are intentionally omitted.'
+  version: 7.6.5
+  contact:
+    name: Repositorio Institucional UNAL
+    email: repositorio_nal@unal.edu.co
+    url: https://repositorio.unal.edu.co/
+  license:
+    name: DSpace (BSD) software; content under individual item licenses
+    url: https://github.com/DSpace/DSpace/blob/main/LICENSE
+servers:
+- url: https://bffrepositorio.unal.edu.co/server
+  description: DSpace 7.6.5 backend (REST API and OAI-PMH), discovered via repositorio.unal.edu.co assets/config.json
+tags:
+- name: REST - Discover
+  description: Faceted search across archived objects.
+paths:
+  /api/discover/search/objects:
+    get:
+      tags:
+      - REST - Discover
+      summary: Search repository objects
+      description: Faceted full-text search across archived DSpace objects (items, collections, communities).
+      operationId: searchObjects
+      parameters:
+      - name: query
+        in: query
+        description: Full-text query string.
+        schema:
+          type: string
+      - name: dsoType
+        in: query
+        description: Restrict results to a DSpace object type.
+        schema:
+          type: string
+          enum:
+          - item
+          - collection
+          - community
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      responses:
+        '200':
+          description: Search result envelope with embedded result objects and paging.
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/SearchResultEnvelope'
+components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      description: Zero-based page index.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Size:
+      name: size
+      in: query
+      description: Page size.
+      schema:
+        type: integer
+        minimum: 1
+        default: 20
+  schemas:
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+    SearchResultEnvelope:
+      type: object
+      description: Discover search response envelope.
+      properties:
+        id:
+          type: string
+        query:
+          type: string
+        type:
+          type: string
+          example: discover
+        _embedded:
+          type: object
+          properties:
+            searchResult:
+              type: object
+              properties:
+                page:
+                  $ref: '#/components/schemas/PageInfo'
+                _links:
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/Link'
+        _links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+    PageInfo:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer

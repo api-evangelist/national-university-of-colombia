@@ -1,0 +1,93 @@
+openapi: 3.0.3
+info:
+  title: National University of Colombia - Institutional Repository OAI-PMH API
+  description: 'Machine-readable description of the publicly accessible, read-only surface of the Repositorio Institucional Universidad Nacional de Colombia, powered by DSpace 7.6.5. Two interfaces are documented: the DSpace REST API (HAL+JSON) and the OAI-PMH 2.0 metadata harvesting interface. Only endpoints confirmed to resolve anonymously during discovery are included. Endpoints that require authentication (e.g. /server/api/core/items) are intentionally omitted.'
+  version: 7.6.5
+  contact:
+    name: Repositorio Institucional UNAL
+    email: repositorio_nal@unal.edu.co
+    url: https://repositorio.unal.edu.co/
+  license:
+    name: DSpace (BSD) software; content under individual item licenses
+    url: https://github.com/DSpace/DSpace/blob/main/LICENSE
+servers:
+- url: https://bffrepositorio.unal.edu.co/server
+  description: DSpace 7.6.5 backend (REST API and OAI-PMH), discovered via repositorio.unal.edu.co assets/config.json
+tags:
+- name: OAI-PMH
+  description: OAI-PMH 2.0 metadata harvesting interface.
+paths:
+  /oai/request:
+    get:
+      tags:
+      - OAI-PMH
+      summary: OAI-PMH 2.0 request endpoint
+      description: OAI-PMH 2.0 protocol endpoint. The verb parameter selects the operation. Returns XML conforming to the OAI-PMH schema. Confirmed live metadata prefixes include oai_dc, qdc, mods, mets, didl, dim, etdms, marc, ore, rdf, uketd_dc, and xoai.
+      operationId: oaiRequest
+      parameters:
+      - name: verb
+        in: query
+        required: true
+        description: The OAI-PMH protocol verb.
+        schema:
+          type: string
+          enum:
+          - Identify
+          - ListMetadataFormats
+          - ListSets
+          - ListIdentifiers
+          - ListRecords
+          - GetRecord
+      - name: metadataPrefix
+        in: query
+        description: Metadata format prefix (required for ListIdentifiers, ListRecords, GetRecord).
+        schema:
+          type: string
+          enum:
+          - oai_dc
+          - qdc
+          - mods
+          - mets
+          - didl
+          - dim
+          - etdms
+          - marc
+          - ore
+          - rdf
+          - uketd_dc
+          - xoai
+      - name: identifier
+        in: query
+        description: OAI identifier of a record (required for GetRecord), e.g. oai:repositorio.unal.edu.co:unal/76203.
+        schema:
+          type: string
+      - name: set
+        in: query
+        description: setSpec to restrict harvesting, e.g. com_unal_1 or col_unal_82470.
+        schema:
+          type: string
+      - name: from
+        in: query
+        description: Lower bound UTC datestamp (YYYY-MM-DDThh:mm:ssZ).
+        schema:
+          type: string
+          format: date-time
+      - name: until
+        in: query
+        description: Upper bound UTC datestamp (YYYY-MM-DDThh:mm:ssZ).
+        schema:
+          type: string
+          format: date-time
+      - name: resumptionToken
+        in: query
+        description: Token returned by a previous incomplete list response.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OAI-PMH XML response.
+          content:
+            text/xml:
+              schema:
+                type: string
+                description: XML document conforming to http://www.openarchives.org/OAI/2.0/

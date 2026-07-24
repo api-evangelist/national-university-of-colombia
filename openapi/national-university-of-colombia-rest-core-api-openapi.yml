@@ -1,0 +1,273 @@
+openapi: 3.0.3
+info:
+  title: National University of Colombia - Institutional Repository OAI-PMH REST - Core API
+  description: 'Machine-readable description of the publicly accessible, read-only surface of the Repositorio Institucional Universidad Nacional de Colombia, powered by DSpace 7.6.5. Two interfaces are documented: the DSpace REST API (HAL+JSON) and the OAI-PMH 2.0 metadata harvesting interface. Only endpoints confirmed to resolve anonymously during discovery are included. Endpoints that require authentication (e.g. /server/api/core/items) are intentionally omitted.'
+  version: 7.6.5
+  contact:
+    name: Repositorio Institucional UNAL
+    email: repositorio_nal@unal.edu.co
+    url: https://repositorio.unal.edu.co/
+  license:
+    name: DSpace (BSD) software; content under individual item licenses
+    url: https://github.com/DSpace/DSpace/blob/main/LICENSE
+servers:
+- url: https://bffrepositorio.unal.edu.co/server
+  description: DSpace 7.6.5 backend (REST API and OAI-PMH), discovered via repositorio.unal.edu.co assets/config.json
+tags:
+- name: REST - Core
+  description: DSpace HAL+JSON read endpoints for repository structure.
+paths:
+  /api:
+    get:
+      tags:
+      - REST - Core
+      summary: API root
+      description: Returns the DSpace REST API root document with the DSpace version and HAL links to all resource endpoints.
+      operationId: getApiRoot
+      responses:
+        '200':
+          description: API root document.
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Root'
+  /api/core/communities:
+    get:
+      tags:
+      - REST - Core
+      summary: List communities
+      description: Returns a paginated list of top-level and child communities (organizational groupings such as faculties and digital libraries).
+      operationId: listCommunities
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      responses:
+        '200':
+          description: Paginated community list.
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/CommunityPage'
+  /api/core/communities/{uuid}:
+    get:
+      tags:
+      - REST - Core
+      summary: Get a community
+      operationId: getCommunity
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: A single community.
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Community'
+        '404':
+          description: Not found.
+  /api/core/collections:
+    get:
+      tags:
+      - REST - Core
+      summary: List collections
+      description: Returns a paginated list of collections (groupings of items, typically degree programs or document types).
+      operationId: listCollections
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      responses:
+        '200':
+          description: Paginated collection list.
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/CollectionPage'
+  /api/core/collections/{uuid}:
+    get:
+      tags:
+      - REST - Core
+      summary: Get a collection
+      operationId: getCollection
+      parameters:
+      - $ref: '#/components/parameters/Uuid'
+      responses:
+        '200':
+          description: A single collection.
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '404':
+          description: Not found.
+components:
+  schemas:
+    MetadataValue:
+      type: object
+      description: A single DSpace metadata value entry.
+      properties:
+        value:
+          type: string
+        language:
+          type: string
+          nullable: true
+        authority:
+          type: string
+          nullable: true
+        confidence:
+          type: integer
+        place:
+          type: integer
+    Collection:
+      type: object
+      description: A DSpace collection (grouping of items).
+      properties:
+        id:
+          type: string
+          format: uuid
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        handle:
+          type: string
+          example: unal/82395
+        metadata:
+          $ref: '#/components/schemas/MetadataMap'
+        archivedItemsCount:
+          type: integer
+        type:
+          type: string
+          example: collection
+        _links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+    CollectionPage:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            collections:
+              type: array
+              items:
+                $ref: '#/components/schemas/Collection'
+        _links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+        page:
+          $ref: '#/components/schemas/PageInfo'
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+    Root:
+      type: object
+      description: DSpace REST API root document.
+      properties:
+        dspaceUI:
+          type: string
+          format: uri
+        dspaceName:
+          type: string
+        dspaceServer:
+          type: string
+          format: uri
+        dspaceVersion:
+          type: string
+        type:
+          type: string
+          example: root
+        _links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+    PageInfo:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    CommunityPage:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            communities:
+              type: array
+              items:
+                $ref: '#/components/schemas/Community'
+        _links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+        page:
+          $ref: '#/components/schemas/PageInfo'
+    Community:
+      type: object
+      description: A DSpace community (organizational grouping).
+      properties:
+        id:
+          type: string
+          format: uuid
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        handle:
+          type: string
+          example: unal/161
+        metadata:
+          $ref: '#/components/schemas/MetadataMap'
+        archivedItemsCount:
+          type: integer
+        type:
+          type: string
+          example: community
+        _links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+    MetadataMap:
+      type: object
+      description: Map of qualified Dublin Core metadata fields to arrays of values.
+      additionalProperties:
+        type: array
+        items:
+          $ref: '#/components/schemas/MetadataValue'
+  parameters:
+    Page:
+      name: page
+      in: query
+      description: Zero-based page index.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Size:
+      name: size
+      in: query
+      description: Page size.
+      schema:
+        type: integer
+        minimum: 1
+        default: 20
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: DSpace object UUID.
+      schema:
+        type: string
+        format: uuid
