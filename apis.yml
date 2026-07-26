@@ -1,4 +1,3 @@
----
 aid: national-university-of-colombia
 name: National University of Colombia
 description: >-
@@ -10,9 +9,21 @@ description: >-
   is the OAI-PMH interface exposed by its institutional repository, alongside an
   open-data portal and an official GitHub organization with limited public code.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+    - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/national-university-of-colombia.png
 url: https://raw.githubusercontent.com/api-evangelist/national-university-of-colombia/refs/heads/main/apis.yml
 tags:
   - Education
@@ -23,26 +34,21 @@ tags:
   - Institutional Repository
   - OAI-PMH
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-07-25'
 specificationVersion: '0.19'
 apis:
-  - aid: national-university-of-colombia:repository-oai
-    name: Institutional Repository (DSpace / OAI-PMH)
-    description: >-
-      The Repositorio Institucional Universidad Nacional de Colombia is a DSpace
-      repository of theses, dissertations, articles, books, and research data.
-      It is registered with re3data and OpenDOAR as exposing an OAI-PMH metadata
-      interface for harvesting. The repository web application resolves publicly;
-      the OAI-PMH request endpoint path could not be confirmed live during review
-      and should be re-verified against the current DSpace version before use.
+  - aid: national-university-of-colombia:national-university-of-colombia-oai-pmh-api
+    name: National University of Colombia OAI-PMH API
+    description: OAI-PMH 2.0 metadata harvesting interface.
     humanURL: https://repositorio.unal.edu.co/
-    tags: [ Institutional Repository, OAI-PMH, DSpace, Research, Open Access ]
     baseURL: https://bffrepositorio.unal.edu.co/server
+    tags:
+      - OAI-PMH
     properties:
+      - type: OpenAPI
+        url: openapi/national-university-of-colombia-oai-pmh-api-openapi.yml
       - type: Documentation
         url: https://www.re3data.org/repository/r3d100013982
-      - type: OpenAPI
-        url: openapi/national-university-of-colombia-repository-oai.yaml
       - type: JSONSchema
         url: json-schema/national-university-of-colombia-community-schema.json
       - type: JSONSchema
@@ -63,18 +69,70 @@ apis:
         url: vocabulary/national-university-of-colombia-vocabulary.yml
       - type: x-json-ld-context
         url: json-ld/national-university-of-colombia-context.jsonld
-  - aid: national-university-of-colombia:open-data
-    name: UNAL Open Data Portal
-    description: >-
-      Datos Abiertos Universidad Nacional de Colombia is the institution's open
-      data portal publishing primary, interoperable datasets for public reuse.
-      The portal resolves publicly but does not advertise a documented API or
-      developer endpoints; data access appears to be via the portal interface.
-    humanURL: https://datosabiertos.unal.edu.co/
-    tags: [ Open Data, Datasets, Statistics ]
+  - aid: national-university-of-colombia:national-university-of-colombia-rest-core-api
+    name: National University of Colombia REST - Core API
+    description: DSpace HAL+JSON read endpoints for repository structure.
+    humanURL: https://repositorio.unal.edu.co/
+    baseURL: https://bffrepositorio.unal.edu.co/server
+    tags:
+      - REST - Core
     properties:
+      - type: OpenAPI
+        url: openapi/national-university-of-colombia-rest-core-api-openapi.yml
       - type: Documentation
-        url: https://datosabiertos.unal.edu.co/
+        url: https://www.re3data.org/repository/r3d100013982
+      - type: JSONSchema
+        url: json-schema/national-university-of-colombia-community-schema.json
+      - type: JSONSchema
+        url: json-schema/national-university-of-colombia-collection-schema.json
+      - type: x-json-structure
+        url: json-structure/national-university-of-colombia-community-structure.json
+      - type: x-json-structure
+        url: json-structure/national-university-of-colombia-collection-structure.json
+      - type: x-example
+        url: examples/national-university-of-colombia-listCommunities-example.json
+      - type: x-example
+        url: examples/national-university-of-colombia-listCollections-example.json
+      - type: x-example
+        url: examples/national-university-of-colombia-oaiRecord-example.json
+      - type: x-spectral-rules
+        url: rules/national-university-of-colombia-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/national-university-of-colombia-vocabulary.yml
+      - type: x-json-ld-context
+        url: json-ld/national-university-of-colombia-context.jsonld
+  - aid: national-university-of-colombia:national-university-of-colombia-rest-discover-api
+    name: National University of Colombia REST - Discover API
+    description: Faceted search across archived objects.
+    humanURL: https://repositorio.unal.edu.co/
+    baseURL: https://bffrepositorio.unal.edu.co/server
+    tags:
+      - REST - Discover
+    properties:
+      - type: OpenAPI
+        url: openapi/national-university-of-colombia-rest-discover-api-openapi.yml
+      - type: Documentation
+        url: https://www.re3data.org/repository/r3d100013982
+      - type: JSONSchema
+        url: json-schema/national-university-of-colombia-community-schema.json
+      - type: JSONSchema
+        url: json-schema/national-university-of-colombia-collection-schema.json
+      - type: x-json-structure
+        url: json-structure/national-university-of-colombia-community-structure.json
+      - type: x-json-structure
+        url: json-structure/national-university-of-colombia-collection-structure.json
+      - type: x-example
+        url: examples/national-university-of-colombia-listCommunities-example.json
+      - type: x-example
+        url: examples/national-university-of-colombia-listCollections-example.json
+      - type: x-example
+        url: examples/national-university-of-colombia-oaiRecord-example.json
+      - type: x-spectral-rules
+        url: rules/national-university-of-colombia-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/national-university-of-colombia-vocabulary.yml
+      - type: x-json-ld-context
+        url: json-ld/national-university-of-colombia-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/national-university-of-colombia-agentic-access.yml
@@ -94,6 +152,8 @@ common:
     url: finops/national-university-of-colombia-finops.yml
   - type: Review
     url: review.yml
+  - type: ProductPage
+    url: https://datosabiertos.unal.edu.co/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
