@@ -35,7 +35,7 @@ tags:
   - OAI-PMH
 created: '2026-06-03'
 modified: '2026-07-25'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: national-university-of-colombia:national-university-of-colombia-oai-pmh-api
     name: National University of Colombia OAI-PMH API
