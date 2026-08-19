@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "National University of Colombia - Institutional Repository OAI-PMH REST - Core API",
+    "version": "7.6.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "REST - Core",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API root",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bffrepositorio.unal.edu.co/server/api"
+          },
+          "docs": "Returns the DSpace REST API root document with the DSpace version and HAL links to all resource endpoints."
+        },
+        {
+          "info": {
+            "name": "List communities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bffrepositorio.unal.edu.co/server/api/core/communities",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of top-level and child communities (organizational groupings such as faculties and digital libraries)."
+        },
+        {
+          "info": {
+            "name": "Get a community",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bffrepositorio.unal.edu.co/server/api/core/communities/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "DSpace object UUID."
+              }
+            ]
+          },
+          "docs": "Get a community"
+        },
+        {
+          "info": {
+            "name": "List collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bffrepositorio.unal.edu.co/server/api/core/collections",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of collections (groupings of items, typically degree programs or document types)."
+        },
+        {
+          "info": {
+            "name": "Get a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bffrepositorio.unal.edu.co/server/api/core/collections/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "DSpace object UUID."
+              }
+            ]
+          },
+          "docs": "Get a collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

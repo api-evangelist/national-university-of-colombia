@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "National University of Colombia - Institutional Repository OAI-PMH API",
+    "version": "7.6.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAI-PMH",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OAI-PMH 2.0 request endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bffrepositorio.unal.edu.co/server/oai/request",
+            "params": [
+              {
+                "name": "verb",
+                "value": "",
+                "type": "query",
+                "description": "The OAI-PMH protocol verb."
+              },
+              {
+                "name": "metadataPrefix",
+                "value": "",
+                "type": "query",
+                "description": "Metadata format prefix (required for ListIdentifiers, ListRecords, GetRecord)."
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "OAI identifier of a record (required for GetRecord), e.g. oai:repositorio.unal.edu.co:unal/76203."
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "setSpec to restrict harvesting, e.g. com_unal_1 or col_unal_82470."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Lower bound UTC datestamp (YYYY-MM-DDThh:mm:ssZ)."
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "Upper bound UTC datestamp (YYYY-MM-DDThh:mm:ssZ)."
+              },
+              {
+                "name": "resumptionToken",
+                "value": "",
+                "type": "query",
+                "description": "Token returned by a previous incomplete list response."
+              }
+            ]
+          },
+          "docs": "OAI-PMH 2.0 protocol endpoint. The verb parameter selects the operation. Returns XML conforming to the OAI-PMH schema. Confirmed live metadata prefixes include oai_dc, qdc, mods, mets, didl, dim, etdms, marc, ore, rdf, uketd_dc, and xoai."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,552 @@
+{
+  "item": [
+    {
+      "id": "2aabba4e-c79d-4fac-a92b-a231a1ce993f",
+      "name": "REST - Core",
+      "description": {
+        "content": "DSpace HAL+JSON read endpoints for repository structure.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4cd1bbc3-262e-4e60-9075-048ec905bbc9",
+          "name": "API root",
+          "request": {
+            "name": "API root",
+            "description": {
+              "content": "Returns the DSpace REST API root document with the DSpace version and HAL links to all resource endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "289f658b-d9e8-4a48-9727-923d78bc4f3d",
+              "name": "API root document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"dspaceUI\": \"https://atgQDeyJfnyUrTTgnSEKiysLbOmEiB.zmrceup,t3LBsUhVYQZS.pTrhkXKkXTElnr\",\n  \"dspaceName\": \"string\",\n  \"dspaceServer\": \"https://ctgDRDdGBJRaSZBKDSUIXNjeEkvdqHt.adPcRicEVvhpFxuiIrYfBhamJmaCQQ\",\n  \"dspaceVersion\": \"string\",\n  \"type\": \"root\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"http://MCATpPbieRuQkEQZXyFPtLhngLqjwq.qmAyEku1Ih90LsD2M4X3RBcuwA5xB27rrDmnW7GIQD7oFlMNIWOuWEfUu78CJ.YId\"\n    },\n    \"key_1\": {\n      \"href\": \"http://JumdDoXupqzz.vhiByLQT.gco3J040eQ,VdVuxbF0+j2b8depmFvxVp.EtjBLORTHfnF\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46a4bceb-38d8-450a-a2ab-53b759755409",
+          "name": "List communities",
+          "request": {
+            "name": "List communities",
+            "description": {
+              "content": "Returns a paginated list of top-level and child communities (organizational groupings such as faculties and digital libraries).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "core",
+                "communities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "Page size."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14ebee04-442a-4e8d-bf76-fab36007079f",
+              "name": "Paginated community list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "core",
+                    "communities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"_embedded\": {\n    \"communities\": [\n      {\n        \"id\": \"75ffb1d4-8b07-5fec-2167-69764d2564bd\",\n        \"uuid\": \"69d01734-053e-d058-0027-a95e0e2be874\",\n        \"name\": \"string\",\n        \"handle\": \"unal/161\",\n        \"metadata\": {\n          \"key_0\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"archivedItemsCount\": 4374,\n        \"type\": \"community\",\n        \"_links\": {\n          \"key_0\": {\n            \"href\": \"http://EgalbTgmdryvKd.nqrvRrvcSdLHq\"\n          },\n          \"key_1\": {\n            \"href\": \"http://kMFheENOVbWlj.prjxI0IE3WLKCRxQq.3k9Zq7TeAP2nDE7FIcRLPjjApVq6Di0m81n9LL6wOeFI-bvRYlTyRPYDR.jzFEKqc\"\n          }\n        }\n      },\n      {\n        \"id\": \"d7aefadc-bfa7-0647-8068-a6425bb153ae\",\n        \"uuid\": \"2b521d4f-039a-c919-59ca-0b0ba35ce5dc\",\n        \"name\": \"string\",\n        \"handle\": \"unal/161\",\n        \"metadata\": {\n          \"key_0\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"key_1\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"archivedItemsCount\": 7178,\n        \"type\": \"community\",\n        \"_links\": {\n          \"key_0\": {\n            \"href\": \"http://rziLyuUnAHqEhHyEDjR.guiu7AbhExXJeB-aby9CGIxeSEgBwrJf2-H1SthmLc\"\n          },\n          \"key_1\": {\n            \"href\": \"http://NiSYQslgBxgpLJIfGSxBbwehBYHrOZSr.bdxdmUs.42mTGICd+IBI9gv\"\n          },\n          \"key_2\": {\n            \"href\": \"https://hTM.bzkIgyjLCMpC,Z0XDnDipnHVpO.,,ZzoV+iuGW0fDM,F69CXzlNNsf-\"\n          }\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"https://gskarYwmQuGnzCKq.omWOSobhjDYo02-HoGEQcX,UQYaHmMzIgNDXHf-AnmQV\"\n    }\n  },\n  \"page\": {\n    \"size\": 7960,\n    \"totalElements\": 6386,\n    \"totalPages\": 5742,\n    \"number\": 2790\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc7c62ff-373e-4ad9-ad22-699a01b79284",
+          "name": "Get a community",
+          "request": {
+            "name": "Get a community",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "core",
+                "communities",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) DSpace object UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd2bddf0-693b-4645-af30-8ee54a555247",
+              "name": "A single community.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "core",
+                    "communities",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) DSpace object UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"id\": \"2e997654-cb2b-9024-ce39-ca5bacf69605\",\n  \"uuid\": \"8e1c735f-fa9b-3376-b840-f1e40dbb0483\",\n  \"name\": \"string\",\n  \"handle\": \"unal/161\",\n  \"metadata\": {\n    \"key_0\": [\n      {\n        \"value\": \"string\",\n        \"language\": \"string\",\n        \"authority\": \"string\",\n        \"confidence\": 8216,\n        \"place\": 4648\n      },\n      {\n        \"value\": \"string\",\n        \"language\": \"string\",\n        \"authority\": \"string\",\n        \"confidence\": 7923,\n        \"place\": 8899\n      }\n    ],\n    \"key_1\": [\n      {\n        \"value\": \"string\",\n        \"language\": \"string\",\n        \"authority\": \"string\",\n        \"confidence\": 4680,\n        \"place\": 5824\n      },\n      {\n        \"value\": \"string\",\n        \"language\": \"string\",\n        \"authority\": \"string\",\n        \"confidence\": 8251,\n        \"place\": 2135\n      }\n    ]\n  },\n  \"archivedItemsCount\": 5107,\n  \"type\": \"community\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"http://wmAbQKGawgxMWoAvZFmHQ.jyCmKYO3tcDB\"\n    },\n    \"key_1\": {\n      \"href\": \"https://cC.niaFdXyZYW8bHRIgrd8G\"\n    },\n    \"key_2\": {\n      \"href\": \"https://jKtrfM.wxj8Zb0hhDHes0mCzhCTHqP89\"\n    },\n    \"key_3\": {\n      \"href\": \"http://LWhbFYVlHD.aqlAoEBV.yL-ZLcn,oZeHxByQ2UjZS6xlVaS1bY.A7mmDNrCG-41zMicjoVyo1B\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f3ffc29-3734-4a34-bbe7-a39a923afe1b",
+              "name": "Not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "core",
+                    "communities",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) DSpace object UUID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed4ee724-4a8e-4434-97c1-dc6b0c773658",
+          "name": "List collections",
+          "request": {
+            "name": "List collections",
+            "description": {
+              "content": "Returns a paginated list of collections (groupings of items, typically degree programs or document types).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "core",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "Page size."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bba0ccb9-c155-4c63-82e5-46aec7c5be4b",
+              "name": "Paginated collection list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "core",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"_embedded\": {\n    \"collections\": [\n      {\n        \"id\": \"7757964c-b87e-fab9-0407-fac5caf08fc3\",\n        \"uuid\": \"0e519964-526e-d944-9c0a-6332304f0e6c\",\n        \"name\": \"string\",\n        \"handle\": \"unal/82395\",\n        \"metadata\": {\n          \"key_0\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"key_1\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"key_2\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"archivedItemsCount\": 7388,\n        \"type\": \"collection\",\n        \"_links\": {\n          \"key_0\": {\n            \"href\": \"https://mxDmpf.xolvpn4nSoyx9Q5mQ+EJIhylL.28oxmTc2TbHlWpWpb9bRQ9tMTzZkqcckDk9AKhUKCN\"\n          },\n          \"key_1\": {\n            \"href\": \"https://oqv.umkOIdRtcu8QCI,HwBX.KBYkbp0nQxUsAVfMxG,D8tnz4WRaerTazowRWDgGetD.paHI\"\n          }\n        }\n      },\n      {\n        \"id\": \"f8b85397-61f5-af01-2945-406c6064d5d1\",\n        \"uuid\": \"371b9468-b65e-eabc-aaf5-be6767c578ec\",\n        \"name\": \"string\",\n        \"handle\": \"unal/82395\",\n        \"metadata\": {\n          \"key_0\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"key_1\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"key_2\": [\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"language\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"authority\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"confidence\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"place\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"archivedItemsCount\": 6827,\n        \"type\": \"collection\",\n        \"_links\": {\n          \"key_0\": {\n            \"href\": \"https://RROLXQp.fnVqwykBex,zEvojVLtv5X9.Fck-VrOTN3XTvwlh\"\n          },\n          \"key_1\": {\n            \"href\": \"http://bMdfDRpFvVIP.eogjAJCUZe6XBWvvKxRDUuCpTlSQ.rTADBlBHJ2OklBPIasPesitm\"\n          }\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"http://aYEFbUngAqazEVCWPY.ujsX.AYdQWt\"\n    },\n    \"key_1\": {\n      \"href\": \"https://xPftrPK.yvnrBETEAbFsk8cZP-n3LiWyAsyHo+2V22kIpfhMzox8xZyYh0Oh5QDNhzwfyt4rbt8ga\"\n    }\n  },\n  \"page\": {\n    \"size\": 8328,\n    \"totalElements\": 358,\n    \"totalPages\": 9041,\n    \"number\": 7528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b535eacd-b113-4210-9b18-30455fed586f",
+          "name": "Get a collection",
+          "request": {
+            "name": "Get a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "core",
+                "collections",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) DSpace object UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf883e16-5459-4a2c-ada0-42592ec4364a",
+              "name": "A single collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "core",
+                    "collections",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) DSpace object UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"id\": \"c388c6a5-db46-4f61-76d6-4871a9eda3f2\",\n  \"uuid\": \"99e4f257-e661-877f-ef45-b4b2ea9f9896\",\n  \"name\": \"string\",\n  \"handle\": \"unal/82395\",\n  \"metadata\": {\n    \"key_0\": [\n      {\n        \"value\": \"string\",\n        \"language\": \"string\",\n        \"authority\": \"string\",\n        \"confidence\": 643,\n        \"place\": 5043\n      },\n      {\n        \"value\": \"string\",\n        \"language\": \"string\",\n        \"authority\": \"string\",\n        \"confidence\": 8594,\n        \"place\": 2566\n      }\n    ]\n  },\n  \"archivedItemsCount\": 3852,\n  \"type\": \"collection\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"http://RaxGlNqmlWCmxDNfiLgoTtwBHDHGUWiQg.iwmfelD.3if8LlFPRMLLherhE+L52qlhou0B\"\n    },\n    \"key_1\": {\n      \"href\": \"https://JrlYo.ogjLpNCgsLzvgEWHmuU,wcdm7t1Fa17Ti,Ewrz22qKJ.qMk-FTGaiQ\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "563ef91d-4483-4756-97a2-57dd50c6e7cd",
+              "name": "Not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "core",
+                    "collections",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) DSpace object UUID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bffrepositorio.unal.edu.co/server",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f0243ce4-596e-4556-8913-bb7c1fed5dcb",
+    "name": "National University of Colombia - Institutional Repository OAI-PMH REST - Core API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Machine-readable description of the publicly accessible, read-only surface of the Repositorio Institucional Universidad Nacional de Colombia, powered by DSpace 7.6.5. Two interfaces are documented: the DSpace REST API (HAL+JSON) and the OAI-PMH 2.0 metadata harvesting interface. Only endpoints confirmed to resolve anonymously during discovery are included. Endpoints that require authentication (e.g. /server/api/core/items) are intentionally omitted.\n\nContact Support:\n Name: Repositorio Institucional UNAL\n Email: repositorio_nal@unal.edu.co",
+      "type": "text/plain"
+    }
+  }
+}

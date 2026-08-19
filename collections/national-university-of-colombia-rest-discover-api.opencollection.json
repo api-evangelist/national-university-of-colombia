@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "National University of Colombia - Institutional Repository OAI-PMH REST - Discover API",
+    "version": "7.6.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "REST - Discover",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search repository objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bffrepositorio.unal.edu.co/server/api/discover/search/objects",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Full-text query string."
+              },
+              {
+                "name": "dsoType",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to a DSpace object type."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              }
+            ]
+          },
+          "docs": "Faceted full-text search across archived DSpace objects (items, collections, communities)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

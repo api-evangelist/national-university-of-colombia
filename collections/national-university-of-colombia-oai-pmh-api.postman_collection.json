@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "af230368-56a3-47bc-9e7d-4533aede4d58",
+      "name": "OAI-PMH",
+      "description": {
+        "content": "OAI-PMH 2.0 metadata harvesting interface.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3f4077b-a111-4c60-a767-ba346f5139a5",
+          "name": "OAI-PMH 2.0 request endpoint",
+          "request": {
+            "name": "OAI-PMH 2.0 request endpoint",
+            "description": {
+              "content": "OAI-PMH 2.0 protocol endpoint. The verb parameter selects the operation. Returns XML conforming to the OAI-PMH schema. Confirmed live metadata prefixes include oai_dc, qdc, mods, mets, didl, dim, etdms, marc, ore, rdf, uketd_dc, and xoai.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oai",
+                "request"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verb",
+                  "value": "<string>",
+                  "description": "(Required) The OAI-PMH protocol verb."
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataPrefix",
+                  "value": "<string>",
+                  "description": "Metadata format prefix (required for ListIdentifiers, ListRecords, GetRecord)."
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "OAI identifier of a record (required for GetRecord), e.g. oai:repositorio.unal.edu.co:unal/76203."
+                },
+                {
+                  "disabled": false,
+                  "key": "set",
+                  "value": "<string>",
+                  "description": "setSpec to restrict harvesting, e.g. com_unal_1 or col_unal_82470."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Lower bound UTC datestamp (YYYY-MM-DDThh:mm:ssZ)."
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "Upper bound UTC datestamp (YYYY-MM-DDThh:mm:ssZ)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resumptionToken",
+                  "value": "<string>",
+                  "description": "Token returned by a previous incomplete list response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91e59b5f-54d3-4a25-a222-4c8ed5a81df5",
+              "name": "OAI-PMH XML response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai",
+                    "request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verb",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "set",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "resumptionToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bffrepositorio.unal.edu.co/server",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "22fbd71c-6354-47be-8d4a-09fdbe324110",
+    "name": "National University of Colombia - Institutional Repository OAI-PMH API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Machine-readable description of the publicly accessible, read-only surface of the Repositorio Institucional Universidad Nacional de Colombia, powered by DSpace 7.6.5. Two interfaces are documented: the DSpace REST API (HAL+JSON) and the OAI-PMH 2.0 metadata harvesting interface. Only endpoints confirmed to resolve anonymously during discovery are included. Endpoints that require authentication (e.g. /server/api/core/items) are intentionally omitted.\n\nContact Support:\n Name: Repositorio Institucional UNAL\n Email: repositorio_nal@unal.edu.co",
+      "type": "text/plain"
+    }
+  }
+}

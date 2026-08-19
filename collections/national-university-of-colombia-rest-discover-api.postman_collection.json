@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "95354048-7112-4041-99f5-93d8224ca42b",
+      "name": "REST - Discover",
+      "description": {
+        "content": "Faceted search across archived objects.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3e7a9600-5511-4679-92f3-824e5f169699",
+          "name": "Search repository objects",
+          "request": {
+            "name": "Search repository objects",
+            "description": {
+              "content": "Faceted full-text search across archived DSpace objects (items, collections, communities).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "discover",
+                "search",
+                "objects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Full-text query string."
+                },
+                {
+                  "disabled": false,
+                  "key": "dsoType",
+                  "value": "<string>",
+                  "description": "Restrict results to a DSpace object type."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "Page size."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "652f1ec0-a1c4-4b1a-a93d-6ee1eec81364",
+              "name": "Search result envelope with embedded result objects and paging.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "discover",
+                    "search",
+                    "objects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dsoType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"query\": \"string\",\n  \"type\": \"discover\",\n  \"_embedded\": {\n    \"searchResult\": {\n      \"page\": {\n        \"size\": 6034,\n        \"totalElements\": 1606,\n        \"totalPages\": 9797,\n        \"number\": 1611\n      },\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"https://RyVGytlmrDyCIxaegZ.pquYMA9JvrT+ISuf15KPw24,zAzF6gH+jrSDWxNEy,4sG\"\n        },\n        \"key_1\": {\n          \"href\": \"http://WEHEqYzzMq.jlshCE802YjdTv5xc5DVbgh67w-V50.\"\n        }\n      }\n    }\n  },\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"http://hisHNjYGDLMOEpITRJzeJWfgu.qunpLeGoqsf8OWsX4rnGQuaBsSu2L44XJTVp3EMrgSji-EC4QL7Iy3j\"\n    },\n    \"key_1\": {\n      \"href\": \"http://ICs.udK7Gpa-H0ILOKlhdkL2wZXIf+\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bffrepositorio.unal.edu.co/server",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c37416c9-ff88-41d7-ae56-eb1d67fd45df",
+    "name": "National University of Colombia - Institutional Repository OAI-PMH REST - Discover API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Machine-readable description of the publicly accessible, read-only surface of the Repositorio Institucional Universidad Nacional de Colombia, powered by DSpace 7.6.5. Two interfaces are documented: the DSpace REST API (HAL+JSON) and the OAI-PMH 2.0 metadata harvesting interface. Only endpoints confirmed to resolve anonymously during discovery are included. Endpoints that require authentication (e.g. /server/api/core/items) are intentionally omitted.\n\nContact Support:\n Name: Repositorio Institucional UNAL\n Email: repositorio_nal@unal.edu.co",
+      "type": "text/plain"
+    }
+  }
+}
