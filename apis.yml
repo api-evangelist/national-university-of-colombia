@@ -9,6 +9,18 @@ description: >-
   is the OAI-PMH interface exposed by its institutional repository, alongside an
   open-data portal and an official GitHub organization with limited public code.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
