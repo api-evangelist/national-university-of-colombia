@@ -65,227 +65,199 @@ created: '2026-06-03'
 modified: '2026-09-01'
 specificationVersion: '0.23'
 apis:
-  - aid: national-university-of-colombia:national-university-of-colombia-oai-pmh-api
-    name: National University of Colombia OAI-PMH API
-    x-operator: institution
-    description: >-
-      OAI-PMH 2.0 metadata harvesting interface of the Repositorio Institucional UNAL,
-      served from the university's own host. Twelve metadata prefixes (oai_dc, qdc, mods,
-      mets, didl, dim, etdms, marc, ore, rdf, uketd_dc, xoai). The software underneath is
-      DSpace 7.6.5, but OAI-PMH is an open protocol and the deployment, host, sets and
-      content are UNAL's; verified live 2026-09-01 with verb=Identify (200).
-    humanURL: https://repositorio.unal.edu.co/
-    baseURL: https://bffrepositorio.unal.edu.co/server
-    tags:
-      - OAI-PMH
-    properties:
-      - type: OpenAPI
-        url: openapi/national-university-of-colombia-oai-pmh-api-openapi.yml
-      - type: Documentation
-        url: https://www.re3data.org/repository/r3d100013982
-      - type: JSONSchema
-        url: json-schema/national-university-of-colombia-community-schema.json
-      - type: JSONSchema
-        url: json-schema/national-university-of-colombia-collection-schema.json
-      - type: x-json-structure
-        url: json-structure/national-university-of-colombia-community-structure.json
-      - type: x-json-structure
-        url: json-structure/national-university-of-colombia-collection-structure.json
-      - type: x-example
-        url: examples/national-university-of-colombia-listCommunities-example.json
-      - type: x-example
-        url: examples/national-university-of-colombia-listCollections-example.json
-      - type: x-example
-        url: examples/national-university-of-colombia-oaiRecord-example.json
-      - type: x-spectral-rules
-        url: rules/national-university-of-colombia-rules.yml
-      - type: x-vocabulary
-        url: vocabulary/national-university-of-colombia-vocabulary.yml
-      - type: x-json-ld-context
-        url: json-ld/national-university-of-colombia-context.jsonld
-  - aid: national-university-of-colombia:national-university-of-colombia-rest-core-api
-    name: National University of Colombia REST - Core API
-    x-operator: institution
-    description: >-
-      Anonymous HAL+JSON read endpoints for the repository's community/collection structure on
-      UNAL's own host. The contract documents only what a credential-free caller can actually
-      reach on THIS deployment — the generic DSpace specification is not saved here.
-      /server/api returns dspaceVersion "DSpace 7.6.5"; verified live 2026-09-01 (200).
-    humanURL: https://repositorio.unal.edu.co/
-    baseURL: https://bffrepositorio.unal.edu.co/server
-    tags:
-      - REST - Core
-    properties:
-      - type: OpenAPI
-        url: openapi/national-university-of-colombia-rest-core-api-openapi.yml
-      - type: Documentation
-        url: https://www.re3data.org/repository/r3d100013982
-      - type: JSONSchema
-        url: json-schema/national-university-of-colombia-community-schema.json
-      - type: JSONSchema
-        url: json-schema/national-university-of-colombia-collection-schema.json
-      - type: x-json-structure
-        url: json-structure/national-university-of-colombia-community-structure.json
-      - type: x-json-structure
-        url: json-structure/national-university-of-colombia-collection-structure.json
-      - type: x-example
-        url: examples/national-university-of-colombia-listCommunities-example.json
-      - type: x-example
-        url: examples/national-university-of-colombia-listCollections-example.json
-      - type: x-example
-        url: examples/national-university-of-colombia-oaiRecord-example.json
-      - type: x-spectral-rules
-        url: rules/national-university-of-colombia-rules.yml
-      - type: x-vocabulary
-        url: vocabulary/national-university-of-colombia-vocabulary.yml
-      - type: x-json-ld-context
-        url: json-ld/national-university-of-colombia-context.jsonld
-  - aid: national-university-of-colombia:national-university-of-colombia-rest-discover-api
-    name: National University of Colombia REST - Discover API
-    x-operator: institution
-    description: >-
-      Faceted, anonymous search across archived objects in UNAL's institutional repository,
-      on the university's own host. Verified live 2026-09-01.
-    humanURL: https://repositorio.unal.edu.co/
-    baseURL: https://bffrepositorio.unal.edu.co/server
-    tags:
-      - REST - Discover
-    properties:
-      - type: OpenAPI
-        url: openapi/national-university-of-colombia-rest-discover-api-openapi.yml
-      - type: Documentation
-        url: https://www.re3data.org/repository/r3d100013982
-      - type: JSONSchema
-        url: json-schema/national-university-of-colombia-community-schema.json
-      - type: JSONSchema
-        url: json-schema/national-university-of-colombia-collection-schema.json
-      - type: x-json-structure
-        url: json-structure/national-university-of-colombia-community-structure.json
-      - type: x-json-structure
-        url: json-structure/national-university-of-colombia-collection-structure.json
-      - type: x-example
-        url: examples/national-university-of-colombia-listCommunities-example.json
-      - type: x-example
-        url: examples/national-university-of-colombia-listCollections-example.json
-      - type: x-example
-        url: examples/national-university-of-colombia-oaiRecord-example.json
-      - type: x-spectral-rules
-        url: rules/national-university-of-colombia-rules.yml
-      - type: x-vocabulary
-        url: vocabulary/national-university-of-colombia-vocabulary.yml
-      - type: x-json-ld-context
-        url: json-ld/national-university-of-colombia-context.jsonld
-  - aid: national-university-of-colombia:national-university-of-colombia-journals-oai-pmh-api
-    name: National University of Colombia Portal de Revistas UN OAI-PMH API
-    x-operator: institution
-    description: >-
-      A SECOND institution-operated OAI-PMH 2.0 endpoint, found in this run and not previously
-      catalogued: the Portal de Revistas UN, UNAL's own journal publishing platform on
-      revistas.unal.edu.co, running Open Journal Systems 3.4.0.10. repositoryName
-      "Portal de Revistas UN", repositoryIdentifier ojs.unal.edu.co, adminEmail
-      digital@unal.edu.co, four metadata prefixes (oai_dc, marcxml, oai_marc, rfc1807) and at
-      least 100 sets — one per journal plus journal:section subsets. The OJS REST API at
-      /index.php/index/api/v1/contexts returns 403 to anonymous callers and is deliberately not
-      documented. Verified live 2026-09-01.
-    humanURL: https://revistas.unal.edu.co/
-    baseURL: https://revistas.unal.edu.co/index.php/index
-    tags:
-      - OAI-PMH
-      - Scholarly Publishing
-      - Open Journal Systems
-    properties:
-      - type: OpenAPI
-        url: openapi/national-university-of-colombia-journals-oai-pmh-api-openapi.yml
-      - type: Documentation
-        url: https://revistas.unal.edu.co/
-      - type: Conformance
-        url: conformance/national-university-of-colombia-conformance.yml
-  - aid: national-university-of-colombia:datos-gov-co-publisher
-    name: UNAL open data on datos.gov.co (Socrata)
-    x-operator: tenant
-    description: >-
-      UNAL's open data is not published on its own portal. datosabiertos.unal.edu.co is a static
-      informational page with no catalogue and no API; the actual datasets sit on Colombia's
-      national Socrata portal datos.gov.co under the named publisher scope "Universidad Nacional
-      de Colombia, Bogota D.C." — six datasets as of 2026-09-01 (Microdatos Personal
-      Administrativo UNAL 6rvy-hipa, Microdatos Docentes de Carrera UNAL uvhe-aufw, Estudiantes
-      Graduados UNAL 3j5e-x7c4, Estudiantes matriculados UNAL 5pqr-ifsd, Microdatos Aspirantes y
-      Admitidos mqpd-2jhs, Microdatos Resultados Prueba Saber Pro g6ci-7e9g). The data is UNAL's;
-      the SODA contract is Socrata's, so no vendor spec is saved. Verified live 2026-09-01:
-      /resource/5pqr-ifsd.json returns 200. Note the dataset UNAL itself links from
-      datosabiertos.unal.edu.co (ps24-42h9) is dead — 404 dataset.missing.
-    humanURL: https://datosabiertos.unal.edu.co/
-    baseURL: https://www.datos.gov.co/resource
-    tags:
-      - Open Data
-      - Socrata
-      - Tenant
-      - Colombia
-    properties:
-      - type: OpenData
-        url: https://datosabiertos.unal.edu.co/
-      - type: Documentation
-        url: https://www.datos.gov.co/resource/5pqr-ifsd.json
-  - aid: national-university-of-colombia:crossref-membership
-    name: Crossref membership (DOI registrant)
-    x-operator: registry
-    description: >-
-      UNAL is a Crossref member in its own right — member id 6146, DOI prefix 10.15446 — with a
-      second member record for its Faculty of Sciences, member id 21512, prefix 10.36385. This is
-      a fact about UNAL held on Crossref's host, machine-readable at api.crossref.org, and it is
-      recorded as a membership, never as a UNAL-operated API. Crossref's own contract is not
-      saved here. Verified live 2026-09-01 (200). By contrast, a search of api.datacite.org for
-      UNAL returns zero providers: the repository mints Handles, not DataCite DOIs.
-    humanURL: https://www.crossref.org/
-    baseURL: https://api.crossref.org/members/6146
-    tags:
-      - Crossref
-      - DOI
-      - Registry
-      - Scholarly Publishing
-    properties:
-      - type: Documentation
-        url: https://api.crossref.org/members/6146
-      - type: Conformance
-        url: conformance/national-university-of-colombia-conformance.yml
-  - aid: national-university-of-colombia:ror-identifier
-    name: ROR organization identifier
-    x-operator: registry
-    description: >-
-      UNAL is registered in the Research Organization Registry as https://ror.org/059yx9a68
-      ("National University of Colombia", UNAL), carrying GRID grid.10689.36, ISNI
-      0000 0004 9129 0751, Wikidata Q1150419 and three Crossref Funder IDs. A registry
-      membership, recorded as the institutional fact it is; the ROR API contract belongs to ROR.
-      Verified live 2026-09-01 (200).
-    humanURL: https://ror.org/059yx9a68
-    baseURL: https://api.ror.org/v2/organizations/059yx9a68
-    tags:
-      - ROR
-      - Registry
-      - Persistent Identifiers
-    properties:
-      - type: Documentation
-        url: https://ror.org/059yx9a68
-  - aid: national-university-of-colombia:library-catalog-aleph
-    name: SINAB library catalog (self-hosted Ex Libris Aleph)
-    x-operator: institution
-    description: >-
-      catalogo.unal.edu.co runs Ex Libris Aleph on UNAL's own infrastructure (168.176.5.96), not
-      on an Ex Libris cloud tenancy — the host verdict is institution, but the product is a
-      vendor's and no Aleph contract is saved. The Aleph X-Services gateway is reachable and
-      returns well-formed XML, but every anonymous query fails with "SRU gate configuration file
-      is missing", so there is no usable public search API. Discovery for SINAB lives at
-      sinab.unal.edu.co, which now serves a Ghost site ("Manglar"). Probed 2026-09-01.
-    humanURL: https://catalogo.unal.edu.co/
-    baseURL: https://catalogo.unal.edu.co/X
-    tags:
-      - Library
-      - Aleph
-      - Ex Libris
-      - Discovery
-    properties:
-      - type: LibraryCatalog
-        url: https://catalogo.unal.edu.co/
+- aid: national-university-of-colombia:national-university-of-colombia-oai-pmh-api
+  name: National University of Colombia OAI-PMH API
+  x-operator: institution
+  description: >-
+    OAI-PMH 2.0 metadata harvesting interface of the Repositorio Institucional UNAL, served from the university's
+    own host. Twelve metadata prefixes (oai_dc, qdc, mods, mets, didl, dim, etdms, marc, ore, rdf, uketd_dc,
+    xoai). The software underneath is DSpace 7.6.5, but OAI-PMH is an open protocol and the deployment,
+    host, sets and content are UNAL's; verified live 2026-09-01 with verb=Identify (200).
+  humanURL: https://repositorio.unal.edu.co/
+  baseURL: https://bffrepositorio.unal.edu.co/server
+  tags:
+  - OAI-PMH
+  properties:
+  - type: OpenAPI
+    url: openapi/national-university-of-colombia-oai-pmh-api-openapi.yml
+  - type: Documentation
+    url: https://www.re3data.org/repository/r3d100013982
+  - type: JSONSchema
+    url: json-schema/national-university-of-colombia-community-schema.json
+  - type: JSONSchema
+    url: json-schema/national-university-of-colombia-collection-schema.json
+  - type: x-json-structure
+    url: json-structure/national-university-of-colombia-community-structure.json
+  - type: x-json-structure
+    url: json-structure/national-university-of-colombia-collection-structure.json
+  - type: x-example
+    url: examples/national-university-of-colombia-listCommunities-example.json
+  - type: x-example
+    url: examples/national-university-of-colombia-listCollections-example.json
+  - type: x-example
+    url: examples/national-university-of-colombia-oaiRecord-example.json
+  - type: x-spectral-rules
+    url: rules/national-university-of-colombia-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/national-university-of-colombia-vocabulary.yml
+  - type: x-json-ld-context
+    url: json-ld/national-university-of-colombia-context.jsonld
+- aid: national-university-of-colombia:national-university-of-colombia-rest-core-api
+  name: National University of Colombia REST - Core API
+  x-operator: institution
+  description: >-
+    Anonymous HAL+JSON read endpoints for the repository's community/collection structure on UNAL's own
+    host. The contract documents only what a credential-free caller can actually reach on THIS deployment
+    — the generic DSpace specification is not saved here. /server/api returns dspaceVersion "DSpace 7.6.5";
+    verified live 2026-09-01 (200).
+  humanURL: https://repositorio.unal.edu.co/
+  baseURL: https://bffrepositorio.unal.edu.co/server
+  tags:
+  - REST - Core
+  properties:
+  - type: OpenAPI
+    url: openapi/national-university-of-colombia-rest-core-api-openapi.yml
+  - type: Documentation
+    url: https://www.re3data.org/repository/r3d100013982
+  - type: JSONSchema
+    url: json-schema/national-university-of-colombia-community-schema.json
+  - type: JSONSchema
+    url: json-schema/national-university-of-colombia-collection-schema.json
+  - type: x-json-structure
+    url: json-structure/national-university-of-colombia-community-structure.json
+  - type: x-json-structure
+    url: json-structure/national-university-of-colombia-collection-structure.json
+  - type: x-example
+    url: examples/national-university-of-colombia-listCommunities-example.json
+  - type: x-example
+    url: examples/national-university-of-colombia-listCollections-example.json
+  - type: x-example
+    url: examples/national-university-of-colombia-oaiRecord-example.json
+  - type: x-spectral-rules
+    url: rules/national-university-of-colombia-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/national-university-of-colombia-vocabulary.yml
+  - type: x-json-ld-context
+    url: json-ld/national-university-of-colombia-context.jsonld
+- aid: national-university-of-colombia:national-university-of-colombia-rest-discover-api
+  name: National University of Colombia REST - Discover API
+  x-operator: institution
+  description: >-
+    Faceted, anonymous search across archived objects in UNAL's institutional repository, on the university's
+    own host. Verified live 2026-09-01.
+  humanURL: https://repositorio.unal.edu.co/
+  baseURL: https://bffrepositorio.unal.edu.co/server
+  tags:
+  - REST - Discover
+  properties:
+  - type: OpenAPI
+    url: openapi/national-university-of-colombia-rest-discover-api-openapi.yml
+  - type: Documentation
+    url: https://www.re3data.org/repository/r3d100013982
+  - type: JSONSchema
+    url: json-schema/national-university-of-colombia-community-schema.json
+  - type: JSONSchema
+    url: json-schema/national-university-of-colombia-collection-schema.json
+  - type: x-json-structure
+    url: json-structure/national-university-of-colombia-community-structure.json
+  - type: x-json-structure
+    url: json-structure/national-university-of-colombia-collection-structure.json
+  - type: x-example
+    url: examples/national-university-of-colombia-listCommunities-example.json
+  - type: x-example
+    url: examples/national-university-of-colombia-listCollections-example.json
+  - type: x-example
+    url: examples/national-university-of-colombia-oaiRecord-example.json
+  - type: x-spectral-rules
+    url: rules/national-university-of-colombia-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/national-university-of-colombia-vocabulary.yml
+  - type: x-json-ld-context
+    url: json-ld/national-university-of-colombia-context.jsonld
+- aid: national-university-of-colombia:datos-gov-co-publisher
+  name: UNAL open data on datos.gov.co (Socrata)
+  x-operator: tenant
+  description: >-
+    UNAL's open data is not published on its own portal. datosabiertos.unal.edu.co is a static informational
+    page with no catalogue and no API; the actual datasets sit on Colombia's national Socrata portal datos.gov.co
+    under the named publisher scope "Universidad Nacional de Colombia, Bogota D.C." — six datasets as
+    of 2026-09-01 (Microdatos Personal Administrativo UNAL 6rvy-hipa, Microdatos Docentes de Carrera UNAL
+    uvhe-aufw, Estudiantes Graduados UNAL 3j5e-x7c4, Estudiantes matriculados UNAL 5pqr-ifsd, Microdatos
+    Aspirantes y Admitidos mqpd-2jhs, Microdatos Resultados Prueba Saber Pro g6ci-7e9g). The data is UNAL's;
+    the SODA contract is Socrata's, so no vendor spec is saved. Verified live 2026-09-01: /resource/5pqr-ifsd.json
+    returns 200. Note the dataset UNAL itself links from datosabiertos.unal.edu.co (ps24-42h9) is dead
+    — 404 dataset.missing.
+  humanURL: https://datosabiertos.unal.edu.co/
+  baseURL: https://www.datos.gov.co/resource
+  tags:
+  - Open Data
+  - Socrata
+  - Tenant
+  - Colombia
+  properties:
+  - type: OpenData
+    url: https://datosabiertos.unal.edu.co/
+  - type: Documentation
+    url: https://www.datos.gov.co/resource/5pqr-ifsd.json
+- aid: national-university-of-colombia:crossref-membership
+  name: Crossref membership (DOI registrant)
+  x-operator: registry
+  description: >-
+    UNAL is a Crossref member in its own right — member id 6146, DOI prefix 10.15446 — with a second member
+    record for its Faculty of Sciences, member id 21512, prefix 10.36385. This is a fact about UNAL held
+    on Crossref's host, machine-readable at api.crossref.org, and it is recorded as a membership, never
+    as a UNAL-operated API. Crossref's own contract is not saved here. Verified live 2026-09-01 (200).
+    By contrast, a search of api.datacite.org for UNAL returns zero providers: the repository mints Handles,
+    not DataCite DOIs.
+  humanURL: https://www.crossref.org/
+  baseURL: https://api.crossref.org/members/6146
+  tags:
+  - Crossref
+  - DOI
+  - Registry
+  - Scholarly Publishing
+  properties:
+  - type: Documentation
+    url: https://api.crossref.org/members/6146
+  - type: Conformance
+    url: conformance/national-university-of-colombia-conformance.yml
+- aid: national-university-of-colombia:ror-identifier
+  name: ROR organization identifier
+  x-operator: registry
+  description: >-
+    UNAL is registered in the Research Organization Registry as https://ror.org/059yx9a68 ("National University
+    of Colombia", UNAL), carrying GRID grid.10689.36, ISNI 0000 0004 9129 0751, Wikidata Q1150419 and
+    three Crossref Funder IDs. A registry membership, recorded as the institutional fact it is; the ROR
+    API contract belongs to ROR. Verified live 2026-09-01 (200).
+  humanURL: https://ror.org/059yx9a68
+  baseURL: https://api.ror.org/v2/organizations/059yx9a68
+  tags:
+  - ROR
+  - Registry
+  - Persistent Identifiers
+  properties:
+  - type: Documentation
+    url: https://ror.org/059yx9a68
+- aid: national-university-of-colombia:library-catalog-aleph
+  name: SINAB library catalog (self-hosted Ex Libris Aleph)
+  x-operator: institution
+  description: >-
+    catalogo.unal.edu.co runs Ex Libris Aleph on UNAL's own infrastructure (168.176.5.96), not on an Ex
+    Libris cloud tenancy — the host verdict is institution, but the product is a vendor's and no Aleph
+    contract is saved. The Aleph X-Services gateway is reachable and returns well-formed XML, but every
+    anonymous query fails with "SRU gate configuration file is missing", so there is no usable public
+    search API. Discovery for SINAB lives at sinab.unal.edu.co, which now serves a Ghost site ("Manglar").
+    Probed 2026-09-01.
+  humanURL: https://catalogo.unal.edu.co/
+  baseURL: https://catalogo.unal.edu.co/X
+  tags:
+  - Library
+  - Aleph
+  - Ex Libris
+  - Discovery
+  properties:
+  - type: LibraryCatalog
+    url: https://catalogo.unal.edu.co/
 common:
   - type: Website
     url: https://unal.edu.co/
