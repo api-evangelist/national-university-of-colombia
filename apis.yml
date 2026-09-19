@@ -192,6 +192,11 @@ apis:
   tags:
   - Open Data
   - Socrata
+  - Tenants
+  - Colombia
+  tags_raw:
+  - Open Data
+  - Socrata
   - Tenant
   - Colombia
   properties:
