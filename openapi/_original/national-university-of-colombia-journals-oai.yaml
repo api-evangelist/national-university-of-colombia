@@ -1,0 +1,93 @@
+openapi: 3.0.3
+info:
+  title: National University of Colombia - Portal de Revistas UN OAI-PMH API
+  description: >-
+    Machine-readable description of the OAI-PMH 2.0 metadata harvesting interface exposed by the
+    Portal de Revistas UN (revistas.unal.edu.co), the Universidad Nacional de Colombia journal
+    publishing platform, running Open Journal Systems 3.4.0.10 on the university's own host.
+    Written from live, credential-free probes on 2026-09-01: Identify, ListMetadataFormats and
+    ListSets all returned 200 with well-formed OAI-PMH XML. The OJS REST API at
+    /index.php/index/api/v1/contexts returns 403 to anonymous callers and is deliberately NOT
+    documented here. The software is PKP's; the deployment, the host, the content and the sets
+    are the university's.
+  version: '2.0'
+  contact:
+    name: Portal de Revistas UN
+    email: digital@unal.edu.co
+    url: https://revistas.unal.edu.co/
+  license:
+    name: Open Journal Systems (GPL-3.0) software; content under individual journal licenses
+    url: https://github.com/pkp/ojs/blob/main/LICENSE
+servers:
+  - url: https://revistas.unal.edu.co/index.php/index
+    description: >-
+      Open Journal Systems 3.4.0.10 site-wide context. Confirmed live 2026-09-01 via
+      ?verb=Identify -> repositoryName "Portal de Revistas UN",
+      repositoryIdentifier ojs.unal.edu.co, adminEmail digital@unal.edu.co.
+tags:
+  - name: OAI-PMH
+    description: OAI-PMH 2.0 metadata harvesting interface for the university journal portal.
+paths:
+  /oai:
+    get:
+      tags: [OAI-PMH]
+      summary: OAI-PMH 2.0 request endpoint
+      description: >-
+        OAI-PMH 2.0 protocol endpoint for the Portal de Revistas UN. The verb parameter selects the
+        operation. Returns XML conforming to the OAI-PMH schema. Confirmed live metadata prefixes
+        are oai_dc, marcxml, oai_marc and rfc1807. Sets are one per journal, with journal:section
+        subsets (e.g. acta_agronomica, acta_agronomica:AGRPR); at least 100 sets are served in the
+        first ListSets page. deletedRecord is persistent, granularity YYYY-MM-DDThh:mm:ssZ.
+      operationId: oaiRequest
+      parameters:
+        - name: verb
+          in: query
+          required: true
+          description: The OAI-PMH protocol verb.
+          schema:
+            type: string
+            enum: [Identify, ListMetadataFormats, ListSets, ListIdentifiers, ListRecords, GetRecord]
+        - name: metadataPrefix
+          in: query
+          description: Metadata format prefix (required for ListIdentifiers, ListRecords, GetRecord).
+          schema:
+            type: string
+            enum: [oai_dc, marcxml, oai_marc, rfc1807]
+        - name: identifier
+          in: query
+          description: OAI identifier of a record (required for GetRecord), e.g. oai:ojs.unal.edu.co:article/1.
+          schema:
+            type: string
+        - name: set
+          in: query
+          description: setSpec to restrict harvesting to one journal or journal section, e.g. acta_agronomica or acta_agronomica:AGRPR.
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: Lower bound UTC datestamp (YYYY-MM-DDThh:mm:ssZ).
+          schema:
+            type: string
+            format: date-time
+        - name: until
+          in: query
+          description: Upper bound UTC datestamp (YYYY-MM-DDThh:mm:ssZ).
+          schema:
+            type: string
+            format: date-time
+        - name: resumptionToken
+          in: query
+          description: Token returned by a previous incomplete list response.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: >-
+            OAI-PMH XML response. Protocol-level failures (badVerb, badArgument, cannotDisseminateFormat,
+            idDoesNotExist, noRecordsMatch, noSetHierarchy, badResumptionToken) are returned inside an
+            <error> element with HTTP 200, per the OAI-PMH specification.
+          content:
+            text/xml:
+              schema:
+                type: string
+                description: XML document conforming to http://www.openarchives.org/OAI/2.0/

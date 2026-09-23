@@ -1,9 +1,8 @@
 {
   "provider": "national-university-of-colombia",
   "sources": [
-    "national-university-of-colombia-oai-pmh-api-openapi.yml",
-    "national-university-of-colombia-rest-core-api-openapi.yml",
-    "national-university-of-colombia-rest-discover-api-openapi.yml"
+    "_original/national-university-of-colombia-journals-oai.yaml",
+    "_original/national-university-of-colombia-repository-oai.yaml"
   ],
   "outputs": [
     "national-university-of-colombia-oai-pmh-api-openapi.yml",
@@ -13,6 +12,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "national-university-of-colombia-journals-oai.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "national-university-of-colombia-repository-oai.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "tag 'OAI-PMH' spans 2 source specs (national-university-of-colombia-journals-oai.yaml, national-university-of-colombia-repository-oai.yaml): per-path servers applied",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "national-university-of-colombia-oai-pmh-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "national-university-of-colombia-rest-core-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "national-university-of-colombia-rest-discover-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

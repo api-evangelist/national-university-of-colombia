@@ -1,0 +1,140 @@
+---
+name: "National University of Colombia — Domain Standard Conformance"
+description: >-
+  Education-regime standard conformance for the Universidad Nacional de Colombia (UNAL),
+  established by live, credential-free probe of institution-operated hosts on 2026-09-01.
+  Reward-only: a standard appears here only where an anonymous request returned a response that
+  proves the deployment. Standards in the education regime with no evidence found are listed
+  under not_found rather than left implicit. Every evidenced host is under unal.edu.co, the
+  university's own registrable domain, except the Crossref membership, which is a registry fact
+  about UNAL held on Crossref's host.
+generated: '2026-09-01'
+method: probed
+source: >-
+  live probes of bffrepositorio.unal.edu.co, revistas.unal.edu.co, catalogo.unal.edu.co,
+  login.unal.edu.co and api.crossref.org, 2026-09-01
+x-operator: institution
+url: https://raw.githubusercontent.com/api-evangelist/national-university-of-colombia/main/conformance/national-university-of-colombia-conformance.yml
+regime: education
+
+conformance:
+  - standard: oai-pmh
+    status: conformant
+    version: '2.0'
+    operator: institution
+    evidence:
+      url: https://bffrepositorio.unal.edu.co/server/oai/request?verb=Identify
+      status: 200
+      location: OAI-PMH/Identify/protocolVersion
+      value: '2.0'
+      detail: >-
+        repositoryName "Repositorio Institucional Universidad Nacional de Colombia", baseURL
+        https://bffrepositorio.unal.edu.co/server/oai/request, repositoryIdentifier
+        repositorio.unal.edu.co, adminEmail repositorio_nal@unal.edu.co, earliestDatestamp
+        2019-01-01T05:00:00Z, granularity YYYY-MM-DDThh:mm:ssZ, deletedRecord transient.
+        DSpace 7.6.5 on UNAL's own host.
+    supporting:
+      - url: https://bffrepositorio.unal.edu.co/server/oai/request?verb=ListMetadataFormats
+        status: 200
+        location: OAI-PMH/ListMetadataFormats/metadataFormat/metadataPrefix
+        value: oai_dc, qdc, mods, mets, didl, dim, etdms, marc, ore, rdf, uketd_dc, xoai
+        detail: >-
+          Twelve metadata formats served, including etdms and uketd_dc for theses — a
+          configured deployment, not a bare default.
+      - url: https://revistas.unal.edu.co/index.php/index/oai?verb=Identify
+        status: 200
+        location: OAI-PMH/Identify/protocolVersion
+        value: '2.0'
+        detail: >-
+          A SECOND, independent institution-operated OAI-PMH endpoint, not previously catalogued:
+          repositoryName "Portal de Revistas UN", repositoryIdentifier ojs.unal.edu.co, adminEmail
+          digital@unal.edu.co, toolkit Open Journal Systems 3.4.0.10, deletedRecord persistent.
+      - url: https://revistas.unal.edu.co/index.php/index/oai?verb=ListSets
+        status: 200
+        location: OAI-PMH/ListSets/set/setSpec
+        value: acta_agronomica, acta_agronomica:AGRPR, acta_agronomica:AEC
+        detail: >-
+          At least 100 sets in the first page, one per journal plus journal:section subsets —
+          the university's own journal portfolio, not a vendor's catalogue.
+
+  - standard: crossref
+    status: conformant
+    operator: registry
+    evidence:
+      url: https://api.crossref.org/members/6146
+      status: 200
+      location: message.primary-name / message.prefix
+      value: "Universidad Nacional de Colombia — DOI prefix 10.15446"
+      detail: >-
+        UNAL is a Crossref member in its own right (member id 6146, prefix 10.15446), with a
+        second member record for its Faculty of Sciences (member id 21512, prefix 10.36385).
+        This is a registry membership — a fact about UNAL held on Crossref's host — not
+        a UNAL-operated API. Crossref's own contract is deliberately not saved here.
+    supporting:
+      - url: https://api.crossref.org/prefixes/10.15446
+        status: 200
+        location: message.name
+        detail: The prefix resolves to the university, confirming the registrant is UNAL itself.
+      - url: https://bffrepositorio.unal.edu.co/server/api/integration/externalsources
+        status: 200
+        location: _embedded.externalsources[].id
+        value: crossref
+        detail: Crossref is additionally deployed as a live external metadata source in UNAL's DSpace.
+
+  - standard: orcid
+    status: deployed
+    operator: institution
+    evidence:
+      url: https://bffrepositorio.unal.edu.co/server/api/integration/externalsources
+      status: 200
+      location: _embedded.externalsources[].id
+      value: orcid, orcidWorks
+      detail: >-
+        ORCID and orcidWorks are enabled external sources on UNAL's own DSpace deployment and are
+        reachable without credentials. Status is `deployed`, not `conformant`: this proves the
+        integration is switched on in UNAL's repository, not that UNAL holds an ORCID
+        member-API credential. No public evidence of institutional ORCID membership was found.
+
+  - standard: datacite
+    status: deployed
+    operator: institution
+    evidence:
+      url: https://bffrepositorio.unal.edu.co/server/api/integration/externalsources
+      status: 200
+      location: _embedded.externalsources[].id
+      value: datacite
+      detail: >-
+        DataCite is an enabled external source in UNAL's DSpace. Qualified the same way as orcid.
+        A search of api.datacite.org/providers for "Universidad Nacional de Colombia" returns
+        total 0, so UNAL is NOT a DataCite provider — its repository identifiers are Handles
+        (oai:repositorio.unal.edu.co:unal/1234), not DataCite DOIs. Recording this as `deployed`
+        rather than `conformant` is the whole point of the distinction.
+
+not_found:
+  - standard: saml
+    detail: >-
+      No SAML metadata document was reachable on any unal.edu.co host. login.unal.edu.co (200)
+      redirects to smartkey.xertica.com/cloudkey/a/unal.edu.co — a commercial Google-identity
+      broker tenancy, not an institution-operated IdP. idp.unal.edu.co does not resolve.
+  - standard: shibboleth
+    detail: >-
+      No Shibboleth IdP found, and none is expected: the eduGAIN federation list (92 federations,
+      technical.edugain.org/api.php?action=list_feds) contains no Colombian federation, so there
+      is no national R&E identity federation for UNAL to register an IdP in. This is a real
+      structural absence for the Colombian higher-education sector, not a probe failure.
+  - standard: scim
+    detail: >-
+      No SCIM 2.0 endpoint found. /server/api/scim/ServiceProviderConfig on the DSpace host
+      returns 404; no /scim/v2 responded on any probed UNAL host.
+  - standard: lti
+    detail: No LTI platform or tool configuration document was publicly reachable on any UNAL host.
+  - standard: oneroster
+    detail: >-
+      Not found. Colombian student-data interchange runs through SNIES (Ministerio de Educacion
+      Nacional), not OneRoster.
+  - standard: ed-fi
+    detail: Not found — Ed-Fi is a US K-12 ecosystem with no Colombian higher-education presence.
+  - standard: caliper
+    detail: Not found. No Caliper Analytics endpoint on any probed UNAL host.
+  - standard: qti
+    detail: Not found. No public QTI interface on any probed UNAL host.
