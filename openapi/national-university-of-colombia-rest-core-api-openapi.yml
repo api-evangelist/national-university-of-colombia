@@ -101,22 +101,6 @@ paths:
           description: Not found.
 components:
   schemas:
-    CollectionPage:
-      type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            collections:
-              type: array
-              items:
-                $ref: '#/components/schemas/Collection'
-        _links:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Link'
-        page:
-          $ref: '#/components/schemas/PageInfo'
     Root:
       type: object
       description: DSpace REST API root document.
@@ -138,51 +122,16 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/Link'
-    Link:
-      type: object
-      properties:
-        href:
-          type: string
-          format: uri
-    PageInfo:
-      type: object
-      properties:
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
-          type: integer
-    MetadataValue:
-      type: object
-      description: A single DSpace metadata value entry.
-      properties:
-        value:
-          type: string
-        language:
-          type:
-          - string
-          - 'null'
-        authority:
-          type:
-          - string
-          - 'null'
-        confidence:
-          type: integer
-        place:
-          type: integer
-    CommunityPage:
+    CollectionPage:
       type: object
       properties:
         _embedded:
           type: object
           properties:
-            communities:
+            collections:
               type: array
               items:
-                $ref: '#/components/schemas/Community'
+                $ref: '#/components/schemas/Collection'
         _links:
           type: object
           additionalProperties:
@@ -196,6 +145,17 @@ components:
         type: array
         items:
           $ref: '#/components/schemas/MetadataValue'
+    PageInfo:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
     Collection:
       type: object
       description: A DSpace collection (grouping of items).
@@ -248,6 +208,46 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/Link'
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+    CommunityPage:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            communities:
+              type: array
+              items:
+                $ref: '#/components/schemas/Community'
+        _links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+        page:
+          $ref: '#/components/schemas/PageInfo'
+    MetadataValue:
+      type: object
+      description: A single DSpace metadata value entry.
+      properties:
+        value:
+          type: string
+        language:
+          type:
+          - string
+          - 'null'
+        authority:
+          type:
+          - string
+          - 'null'
+        confidence:
+          type: integer
+        place:
+          type: integer
   parameters:
     Page:
       name: page
@@ -257,14 +257,6 @@ components:
         type: integer
         minimum: 0
         default: 0
-    Uuid:
-      name: uuid
-      in: path
-      required: true
-      description: DSpace object UUID.
-      schema:
-        type: string
-        format: uuid
     Size:
       name: size
       in: query
@@ -273,3 +265,11 @@ components:
         type: integer
         minimum: 1
         default: 20
+    Uuid:
+      name: uuid
+      in: path
+      required: true
+      description: DSpace object UUID.
+      schema:
+        type: string
+        format: uuid

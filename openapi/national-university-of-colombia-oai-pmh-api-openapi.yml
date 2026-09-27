@@ -87,7 +87,7 @@ paths:
       - oai pmh
       summary: OAI-PMH 2.0 request endpoint
       description: OAI-PMH 2.0 protocol endpoint. The verb parameter selects the operation. Returns XML conforming to the OAI-PMH schema. Confirmed live metadata prefixes include oai_dc, qdc, mods, mets, didl, dim, etdms, marc, ore, rdf, uketd_dc, and xoai.
-      operationId: oaiRequest
+      operationId: getOaiRequest
       parameters:
       - name: verb
         in: query
@@ -155,6 +155,8 @@ paths:
               schema:
                 type: string
                 description: XML document conforming to http://www.openarchives.org/OAI/2.0/
+      x-operation-id-source: normalized
+      x-operation-id-original: oaiRequest
     servers:
     - url: https://bffrepositorio.unal.edu.co/server
       description: DSpace 7.6.5 backend (REST API and OAI-PMH), discovered via repositorio.unal.edu.co assets/config.json

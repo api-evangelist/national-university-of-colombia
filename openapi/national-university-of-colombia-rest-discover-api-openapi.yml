@@ -50,23 +50,6 @@ paths:
                 $ref: '#/components/schemas/SearchResultEnvelope'
 components:
   schemas:
-    Link:
-      type: object
-      properties:
-        href:
-          type: string
-          format: uri
-    PageInfo:
-      type: object
-      properties:
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
-          type: integer
     SearchResultEnvelope:
       type: object
       description: Discover search response envelope.
@@ -94,6 +77,23 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/Link'
+    PageInfo:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
   parameters:
     Page:
       name: page
