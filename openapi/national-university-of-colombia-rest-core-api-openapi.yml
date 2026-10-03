@@ -101,27 +101,6 @@ paths:
           description: Not found.
 components:
   schemas:
-    Root:
-      type: object
-      description: DSpace REST API root document.
-      properties:
-        dspaceUI:
-          type: string
-          format: uri
-        dspaceName:
-          type: string
-        dspaceServer:
-          type: string
-          format: uri
-        dspaceVersion:
-          type: string
-        type:
-          type: string
-          example: root
-        _links:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Link'
     CollectionPage:
       type: object
       properties:
@@ -145,16 +124,23 @@ components:
         type: array
         items:
           $ref: '#/components/schemas/MetadataValue'
-    PageInfo:
+    MetadataValue:
       type: object
+      description: A single DSpace metadata value entry.
       properties:
-        size:
+        value:
+          type: string
+        language:
+          type:
+          - string
+          - 'null'
+        authority:
+          type:
+          - string
+          - 'null'
+        confidence:
           type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
+        place:
           type: integer
     Collection:
       type: object
@@ -208,12 +194,6 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/Link'
-    Link:
-      type: object
-      properties:
-        href:
-          type: string
-          format: uri
     CommunityPage:
       type: object
       properties:
@@ -230,24 +210,44 @@ components:
             $ref: '#/components/schemas/Link'
         page:
           $ref: '#/components/schemas/PageInfo'
-    MetadataValue:
+    Link:
       type: object
-      description: A single DSpace metadata value entry.
       properties:
-        value:
+        href:
           type: string
-        language:
-          type:
-          - string
-          - 'null'
-        authority:
-          type:
-          - string
-          - 'null'
-        confidence:
+          format: uri
+    PageInfo:
+      type: object
+      properties:
+        size:
           type: integer
-        place:
+        totalElements:
           type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    Root:
+      type: object
+      description: DSpace REST API root document.
+      properties:
+        dspaceUI:
+          type: string
+          format: uri
+        dspaceName:
+          type: string
+        dspaceServer:
+          type: string
+          format: uri
+        dspaceVersion:
+          type: string
+        type:
+          type: string
+          example: root
+        _links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
   parameters:
     Page:
       name: page
