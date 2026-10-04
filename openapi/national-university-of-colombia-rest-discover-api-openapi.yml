@@ -50,14 +50,6 @@ paths:
                 $ref: '#/components/schemas/SearchResultEnvelope'
 components:
   parameters:
-    Size:
-      name: size
-      in: query
-      description: Page size.
-      schema:
-        type: integer
-        minimum: 1
-        default: 20
     Page:
       name: page
       in: query
@@ -66,13 +58,15 @@ components:
         type: integer
         minimum: 0
         default: 0
+    Size:
+      name: size
+      in: query
+      description: Page size.
+      schema:
+        type: integer
+        minimum: 1
+        default: 20
   schemas:
-    Link:
-      type: object
-      properties:
-        href:
-          type: string
-          format: uri
     SearchResultEnvelope:
       type: object
       description: Discover search response envelope.
@@ -111,3 +105,9 @@ components:
           type: integer
         number:
           type: integer
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
