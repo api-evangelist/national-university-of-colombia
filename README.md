@@ -1,4 +1,4 @@
-# National University of Colombia (national-university-of-colombia)
+# National University of Colombia
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,46 +64,164 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The National University of Colombia (Universidad Nacional de Colombia, UNAL) is the country's largest public research university, ranked #219 in the QS World University Rankings 2025. This repository catalogs UNAL's public developer/API footprint as an APIs.json provider profile. UNAL does not publish a formal, documented public developer portal or REST API program; its most accessible programmatic surfaces are a DSpace institutional repository (OAI-PMH) and an open-data portal.
+The National University of Colombia (Universidad Nacional de Colombia, UNAL) is the country's largest public research university, ranked #219 in the QS World University Rankings 2025. UNAL operates NO central developer portal, no API gateway and no documented public API program, and no llms.txt, ai.txt or .well-known/apis.json exists on unal.edu.co. What it does operate, on its own hosts, is scholarly infrastructure: a DSpace 7.6.5 institutional repository at bffrepositorio.unal.edu.co with an anonymous HAL+JSON REST API and an OAI-PMH 2.0 endpoint, and a second, independent OAI-PMH 2.0 endpoint on the Portal de Revistas UN (Open Journal Systems 3.4.0.10) serving 100+ journal sets. Beyond that its programmable footprint is relationships rather than engineering: six open datasets published as a named publisher scope on Colombia's national Socrata portal datos.gov.co, a self-hosted Ex Libris Aleph library catalog whose X-Services gate answers with a configuration error, Crossref membership (prefix 10.15446), a ROR identifier, and single sign-on brokered by a commercial vendor rather than a Shibboleth IdP. Colombia has no eduGAIN federation, so the identity-federation surface most universities have does not exist here.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/national-university-of-colombia/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=national-university-of-colombia-api-evangelist&utm_content=repo
+**Areas:** Education · Higher Education · University · Public Research University · Colombia · Latin America · Open Data · Institutional Repository · Research Data · Scholarly Publishing · Library · OAI-PMH
 
-## Type
+## National University of Colombia on APIs.io
 
-Index / Consumer / 3rd-Party
+Everything profiled for National University of Colombia is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/national-university-of-colombia/](https://apis.io/providers/national-university-of-colombia/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-Education, Higher Education, University, Colombia, Open Data, Institutional Repository, OAI-PMH
+- [National University of Colombia OAI-PMH API](https://apis.io/apis/national-university-of-colombia/national-university-of-colombia-oai-pmh-api/) — OAI-PMH 2.0 metadata harvesting interface of the Repositorio Institucional UNAL, served from the university's own host. Twelve metadata prefixes (oai_dc,…
+- [National University of Colombia REST - Core API](https://apis.io/apis/national-university-of-colombia/national-university-of-colombia-rest-core-api/) — Anonymous HAL+JSON read endpoints for the repository's community/collection structure on UNAL's own host. The contract documents only what a credential-free…
+- [National University of Colombia REST - Discover API](https://apis.io/apis/national-university-of-colombia/national-university-of-colombia-rest-discover-api/) — Faceted, anonymous search across archived objects in UNAL's institutional repository, on the university's own host. Verified live 2026-09-01.
+- [UNAL open data on datos.gov.co (Socrata)](https://apis.io/apis/national-university-of-colombia/datos-gov-co-publisher/) — UNAL's open data is not published on its own portal. datosabiertos.unal.edu.co is a static informational page with no catalogue and no API; the actual…
+- [Crossref membership (DOI registrant)](https://apis.io/apis/national-university-of-colombia/crossref-membership/) — UNAL is a Crossref member in its own right — member id 6146, DOI prefix 10.15446 — with a second member record for its Faculty of Sciences, member id 21512,…
+- [ROR organization identifier](https://apis.io/apis/national-university-of-colombia/ror-identifier/) — UNAL is registered in the Research Organization Registry as https://ror.org/059yx9a68 ("National University of Colombia", UNAL), carrying GRID…
+- [SINAB library catalog (self-hosted Ex Libris Aleph)](https://apis.io/apis/national-university-of-colombia/library-catalog-aleph/) — catalogo.unal.edu.co runs Ex Libris Aleph on UNAL's own infrastructure (168.176.5.96), not on an Ex Libris cloud tenancy — the host verdict is institution,…
 
-## APIs
+### Published properties
 
-- **Institutional Repository (DSpace / OAI-PMH)** — DSpace repository of theses, articles, books, and research data; registered with re3data/OpenDOAR as OAI-PMH enabled. Docs: https://www.re3data.org/repository/r3d100013982 — Portal: https://repositorio.unal.edu.co/
-- **UNAL Open Data Portal** — Open datasets for public reuse; no documented API advertised. Docs: https://datosabiertos.unal.edu.co/
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Plans / Rate Limits / FinOps
+#### Agentic access (1)
 
-- Plans: [plans/national-university-of-colombia-plans-pricing.yml](plans/national-university-of-colombia-plans-pricing.yml)
-- Rate Limits: [rate-limits/national-university-of-colombia-rate-limits.yml](rate-limits/national-university-of-colombia-rate-limits.yml)
-- FinOps: [finops/national-university-of-colombia-finops.yml](finops/national-university-of-colombia-finops.yml)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Timestamps
+- [National University Of Colombia Agentic Access](https://apis.io/agentic-access/national-university-of-colombia/national-university-of-colombia-agentic-access/)
 
-- Created: 2026-06-03
-- Modified: 2026-06-03
+#### JSON Schema (2)
 
-## Common Properties
+The data models the API reads and writes.
 
-- Website: https://unal.edu.co/
-- GitHub: https://github.com/unal
-- LinkedIn: https://www.linkedin.com/school/universidad-nacional-de-colombia/
-- Review: [review.yml](review.yml)
+- [DSpace Collection](https://apis.io/schemas/national-university-of-colombia/national-university-of-colombia-collection/)
+- [DSpace Community](https://apis.io/schemas/national-university-of-colombia/national-university-of-colombia-community/)
 
-## Notes
+#### JSON Structure (2)
 
-This profile reflects only publicly confirmable surfaces; no endpoints, keys, or signup flows were fabricated. The institutional repository is documented as OAI-PMH enabled (re3data/OpenDOAR), but the OAI-PMH request path probed during review returned HTTP 404 and must be re-verified against the current DSpace version before integration. The open-data portal does not advertise a documented API. The official UNAL website blocks automated clients but is the canonical domain.
+Data models expressed in JSON Structure.
 
-## Maintainers
+- [National University Of Colombia Collection Structure](https://apis.io/json-structure/national-university-of-colombia/national-university-of-colombia-collection-structure/)
+- [National University Of Colombia Community Structure](https://apis.io/json-structure/national-university-of-colombia/national-university-of-colombia-community-structure/)
 
-- Kin Lane — kin@apievangelist.com
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [National University Of Colombia Context](https://apis.io/jsonld/national-university-of-colombia/national-university-of-colombia-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [National University of Colombia Institutional Repository Vocabulary](https://apis.io/vocabularies/national-university-of-colombia/national-university-of-colombia-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [National University Of Colombia Listcollections Example](https://apis.io/examples/national-university-of-colombia/national-university-of-colombia-listCollections-example/)
+- [National University Of Colombia Listcommunities Example](https://apis.io/examples/national-university-of-colombia/national-university-of-colombia-listCommunities-example/)
+- [National University Of Colombia Oairecord Example](https://apis.io/examples/national-university-of-colombia/national-university-of-colombia-oaiRecord-example/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [National University of Colombia - Institutional Repository OAI-PMH API](https://apis.io/collections/national-university-of-colombia/open-national-university-of-colombia-oai-pmh-api/)
+- [National University of Colombia - Institutional Repository OAI-PMH REST - Core API](https://apis.io/collections/national-university-of-colombia/open-national-university-of-colombia-rest-core-api/)
+- [National University of Colombia - Institutional Repository OAI-PMH REST - Discover API](https://apis.io/collections/national-university-of-colombia/open-national-university-of-colombia-rest-discover-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [National University of Colombia — jsonschema rules](https://apis.io/rules/national-university-of-colombia/national-university-of-colombia-jsonschema-spectral-rules/)
+- [National University of Colombia API Rules](https://apis.io/rules/national-university-of-colombia/national-university-of-colombia-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [National University Of Colombia Domain Security](https://apis.io/security/national-university-of-colombia/national-university-of-colombia-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [National University Of Colombia Plans Pricing](https://apis.io/plans/national-university-of-colombia/national-university-of-colombia-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [National University Of Colombia Rate Limits](https://apis.io/rate-limits/national-university-of-colombia/national-university-of-colombia-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [National University Of Colombia Finops](https://apis.io/finops/national-university-of-colombia/national-university-of-colombia-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://unal.edu.co/)
+- [Documentation](https://www.re3data.org/repository/r3d100013982)
+- [GitHub](https://github.com/unal)
+
+## API Evangelist rating
+
+**Kin Score 24.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 53.9 |
+| Contract governance | 9.8 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 5.3 |
+
+**Agent readiness 17.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/national-university-of-colombia/](https://apis.io/providers/national-university-of-colombia/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for National University of Colombia: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/national-university-of-colombia/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
